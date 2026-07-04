@@ -1,0 +1,66 @@
+.student-manager {
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prof-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.1s;
+}
+
+.prof-card summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.prof-card ul {
+  margin: 1rem 0 0 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+.prof-card ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #edf2f7;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.prof-card ul li:last-child {
+  border-bottom: none;
+}
+
+.prof-card ul li strong {
+  color: #0f172a;
+}

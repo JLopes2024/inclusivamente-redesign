@@ -1,0 +1,73 @@
+.methodology {
+  padding: 80px 20px;
+  background-color: #f8f9fa;
+}
+
+.method-grid {
+  display: flex;
+  overflow-x: auto; /* Permite scroll no mobile */
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+/* Ajuste de cores para contraste no fundo escuro */
+.method-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: #0f1d40; /* O azul escuro do seu print */
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  color: #ffffff; /* Texto branco para legibilidade */
+}
+
+/* Ajuste dos textos dentro do card */
+.method-card h3 {
+  color: #ffffff; /* Título em branco */
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.method-card p {
+  color: #e0e0e0; /* Cinza claro para o parágrafo */
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.method-icon {
+  color: #4cc9f0; /* Uma cor de destaque (ex: ciano) para os ícones */
+  margin-bottom: 20px;
+}
+
+/* Desktop: Grid de 5 colunas */
+@media (min-width: 1024px) {
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    overflow: visible;
+  }
+  
+  .method-card {
+    flex: none;
+    width: 100%;
+  }
+
+  .method-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+}
+
+.method-icon {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.method-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}

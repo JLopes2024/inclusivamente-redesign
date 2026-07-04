@@ -1,77 +1,34 @@
-import {
-  Brain,
-  Activity,
-  School,
-  Users,
-  HeartHandshake,
-  Sparkles,
-} from "lucide-react";
+import { methodologyData } from "../data/methodologyData";
+import { Brain, Lightbulb, Sprout, Users, Star } from "lucide-react";
+import "./methodology.css";
+
+// Mapeamento de nomes de ícones para componentes
+const iconMap = {
+  Brain: <Brain size={32} />,
+  Lightbulb: <Lightbulb size={32} />,
+  Sprout: <Sprout size={32} />,
+  Users: <Users size={32} />,
+  Star: <Star size={32} />
+};
 
 export default function Methodology() {
-  const pillars = [
-    {
-      icon: <Brain size={28} />,
-      title: "Ciência",
-    },
-    {
-      icon: <Activity size={28} />,
-      title: "Movimento",
-    },
-    {
-      icon: <School size={28} />,
-      title: "Escola",
-    },
-    {
-      icon: <Users size={28} />,
-      title: "Professores",
-    },
-    {
-      icon: <HeartHandshake size={28} />,
-      title: "Família",
-    },
-    {
-      icon: <Sparkles size={28} />,
-      title: "Desenvolvimento",
-    },
-  ];
-
   return (
-    <section className="methodology">
-
+    <section id="metodologia" className="methodology">
       <div className="container">
-
-        <span className="section-tag">
-          METODOLOGIA
-        </span>
-
-        <h2 className="title">
-          Tudo conectado para gerar
-          uma inclusão de verdade.
-        </h2>
-
+        <h2 className="title">Metodologia</h2>
         <p className="subtitle">
-          Nossa metodologia integra diferentes agentes do processo educacional,
-          criando uma rede colaborativa para potencializar o desenvolvimento dos estudantes.
+          O movimento corporal é um poderoso instrumento pedagógico
         </p>
-
         <div className="method-grid">
-
-          {pillars.map((item, index) => (
-            <div className="method-card" key={index}>
-
-              <div className="method-icon">
-                {item.icon}
-              </div>
-
-              <h4>{item.title}</h4>
-
+          {methodologyData.map((item) => (
+            <div className="method-card" key={item.id}>
+              <div className="method-icon">{iconMap[item.iconName]}</div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
             </div>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }

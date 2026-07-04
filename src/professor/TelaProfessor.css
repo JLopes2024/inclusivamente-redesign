@@ -1,0 +1,40 @@
+.prof-dashboard {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 80px auto 0; /* Espaço para a Navbar */
+}
+
+.prof-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.welcome-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #e5e5e5;
+}
+
+.status-badge {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}

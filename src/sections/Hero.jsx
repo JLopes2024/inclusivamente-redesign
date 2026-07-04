@@ -15,21 +15,16 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="tag">Transformando a educação brasileira</span>
+          <span className="tag">Educação inclusiva que</span>
           <h1>
-            Escolas onde a <br />
-            inclusão acontece <br />
-            <span style={{ color: 'var(--secondary)' }}>de verdade.</span>
+            desenvolve potencial <br />
+            <span style={{ color: 'var(--secondary)' }}>através do movimento.</span>
           </h1>
           <p>
-            Unimos ciência, movimento e formação continuada para criar ambientes escolares 
-            preparados para desenvolver e potencializar cada estudante.
+            A InclusivaMente desenvolve soluções pedagógicas que integram educação, ciência e movimento para promover inclusão, aprendizagem e desenvolvimento humano.
           </p>
           <div className="hero-buttons">
             <Button onClick={handleAgendarClick}>Agendar Inicial</Button>
-            <Button variant="secondary" id="#methodology">
-              Conhecer metodologia
-            </Button>
           </div>
         </motion.div>
 
