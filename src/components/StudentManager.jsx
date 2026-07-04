@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { dataAluno } from "../data/dataAlunos";
 import { dataProfessor } from "../data/dataProfessor";
-import "./StudentManager.css";
+import "./studentmanager.css";
 
 export default function StudentManager() {
   const [searchTerm, setSearchTerm] = useState("");
