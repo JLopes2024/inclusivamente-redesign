@@ -2,23 +2,27 @@
    VARIÁVEIS GLOBAIS
 ===================================================== */
 
+/* =========================================
+   DESIGN SYSTEM - INCLUSIVAMENTE (CORE)
+   ========================================= */
 :root {
-  --primary: #0B2D66;
-  --secondary: #22C7D6;
-  --accent: #8C6CF4;
+  --primary: #0B2D66;       /* Azul Marinho Profundo */
+  --secondary: #22C7D6;     /* Turquesa Vibrante (Ação) */
+  --accent: #8C6CF4;        /* Lilás/Roxo (Empatia) */
 
-  --background: #F8FAFC;
-  --surface: #FFFFFF;
+  --background: #F8FAFC;    /* Off-White (Fundo Geral) */
+  --surface: #FFFFFF;       /* Branco (Cards e Painéis) */
 
-  --text: #111827;
-  --text-light: #6B7280;
+  --text: #111827;          /* Texto Principal (Quase Preto) */
+  --text-light: #6B7280;    /* Texto Secundário (Cinza) */
 
-  --border: #E5E7EB;
+  --border: #E5E7EB;        /* Bordas Suaves */
 
-  --radius: 18px;
+  --radius: 18px;           /* Arredondamento Padrão */
 
-  --shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+  --shadow: 0 15px 40px rgba(15, 23, 42, 0.08); /* Sombra Moderna */
 }
+
 /* =====================================================
    RESET
 ===================================================== */
