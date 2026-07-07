@@ -55,13 +55,6 @@ const PublicLayout = ({ children }) => (
   </>
 );
 
-// Layout para os Painéis (Usa a Navbar do Dashboard)
-const DashboardLayout = ({ children }) => (
-  <>
-    <NavbarDashboard />
-    <main className="dashboard-container">{children}</main>
-  </>
-);
 
 /* =========================================
    APP CORE
