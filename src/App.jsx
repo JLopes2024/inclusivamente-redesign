@@ -13,6 +13,9 @@ import LoginPage from "./pages/LoginPage";
 // Importando as páginas de dashboard
 import TelaProfessor from "./professor/TelaProfessor"; 
 import TelaAdmin from "./admin/TelaAdmin";
+import DashEducadores from "./admin/DashEducadores"; // <- Adicionar
+import DashPam from "./admin/DashPam";
+import Configuracoes from "./admin/Configuracoes";
 
 function App() {
   return (
@@ -42,6 +45,10 @@ function App() {
         
         {/* Rota dedicada à Tela do Professor */}
         <Route path="/tela-professor" element={<TelaProfessor />} />
+
+        <Route path="/dash-educadores" element={<DashEducadores />} />
+        <Route path="/dash-pam" element={<DashPam />} />
+        <Route path="/tela-admin/configuracoes" element={<Configuracoes />} />
       </Routes>
     </Router>
   );
