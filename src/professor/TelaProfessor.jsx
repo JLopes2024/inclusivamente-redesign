@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { dataAluno } from "../data/dataAlunos";
+import { dataProfessor } from "../data/dataProfessor"; // NOVO: Import para buscar os dados do professor
 import { 
   Search, Users, Clock, Target, 
   ChevronDown, ChevronUp, FileText, CheckCircle2, AlertCircle 
 } from "lucide-react";
-import AvaliacaoPratica from "./AvaliacaoPratica"; // NOVO: Import do componente
+import AvaliacaoPratica from "./AvaliacaoPratica"; 
 import "./TelaProfessor.css";
 
 export default function TelaProfessor() {
@@ -12,12 +13,14 @@ export default function TelaProfessor() {
   const [filtroStatus, setFiltroStatus] = useState("Todos");
   const [busca, setBusca] = useState("");
   const [expandidoAtual, setExpandidoAtual] = useState(null);
-  
-  // NOVO: Estado para armazenar o aluno que está sendo avaliado no momento
   const [alunoAvaliando, setAlunoAvaliando] = useState(null); 
 
   // --- LÓGICA DE DADOS (DETERMINÍSTICA E SEM BUGS DE RENDER) ---
   const PROFESSOR_LOGADO_ID = 1; // Simulação de sessão
+
+  // NOVO: Busca o perfil completo do professor baseado no ID logado
+  const professorLogado = dataProfessor.find(p => p.id === PROFESSOR_LOGADO_ID);
+  const nomeApresentacao = professorLogado ? professorLogado.nome : "Educador";
 
   const cargaAlunos = dataAluno.filter(a => a.professorId === PROFESSOR_LOGADO_ID);
 
@@ -53,7 +56,6 @@ export default function TelaProfessor() {
       return b.diasPendente - a.diasPendente; 
     });
 
-  // NOVO: Intercepta a renderização para mostrar o formulário se um aluno foi selecionado
   if (alunoAvaliando) {
     return (
       <AvaliacaoPratica 
@@ -69,6 +71,10 @@ export default function TelaProfessor() {
       
       <header className="prof-header">
         <div>
+          {/* NOVO: Saudação visualmente destacada e dinâmica */}
+          <span style={{ display: 'block', color: 'var(--secondary)', fontWeight: '600', fontSize: '15px', marginBottom: '6px' }}>
+            👋 Olá, {nomeApresentacao}!
+          </span>
           <h1>Painel de Avaliação PAM</h1>
           <p>Acompanhamento prático e consolidação de habilidades.</p>
         </div>
@@ -165,7 +171,7 @@ export default function TelaProfessor() {
                   {aluno.status === "Pendente" ? (
                     <button 
                       className="btn-acao primario"
-                      onClick={() => setAlunoAvaliando(aluno)} // NOVO: Ação de clique adicionada aqui
+                      onClick={() => setAlunoAvaliando(aluno)} 
                     >
                       Iniciar Avaliação Prática
                     </button>
