@@ -5,14 +5,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f8f9fa; /* Fundo levemente acinzentado para destaque do card */
+  background-color: var(--primary); /* Fundo levemente acinzentado para destaque do card */
   padding: 20px;
   font-family: 'Inter', sans-serif; /* Ajuste conforme a fonte que você usa no projeto */
 }
 
 /* Logo */
 .login-logo {
-  width: 140px;
+  width: 170px;
+  height: auto;
   margin-bottom: 32px;
 }
 
