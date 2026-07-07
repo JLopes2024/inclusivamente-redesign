@@ -1,6 +1,6 @@
 import { useAuthStore } from "../store/useAuthStore";
 import { useNavigate } from "react-router-dom";
-import StudentManager from "../components/StudentManager"; // Importando o novo componente
+import ProfManager from "../components/ProfManager"; // Importando o novo componente
 import "./TelaProfessor.css";
 
 export default function TelaProfessor() {
@@ -27,7 +27,7 @@ export default function TelaProfessor() {
         </div>
         
         {/* Integração do gerenciador com filtro */}
-        <StudentManager />
+        <ProfManager />
       </main>
     </div>
   );
