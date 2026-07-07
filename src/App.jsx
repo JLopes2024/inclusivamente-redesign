@@ -1,7 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useAuthStore } from "./store/useAuthStore";
-
-// Componentes Globais e Públicos
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -13,60 +10,20 @@ import Benefits from "./sections/Benefits";
 import Testimonials from "./sections/Testimonials";
 import CTA from "./sections/CTA";
 import LoginPage from "./pages/LoginPage";
-
-// Componentes do Sistema (Painéis)
-import Navbar from "./layout/Navbar"; // <- Ajuste o caminho se necessário
+// Importando as páginas de dashboard
 import TelaProfessor from "./professor/TelaProfessor"; 
 import TelaAdmin from "./admin/TelaAdmin";
 
-/* =========================================
-   GUARDIÃO DE ROTAS (PROTECTED ROUTE)
-   ========================================= */
-// Este componente intercepta o acesso. Se não houver usuário, joga para o login.
-const ProtectedRoute = ({ children, cargoRequerido }) => {
-  const user = useAuthStore((state) => state.user);
-
-  // 1. Bloqueio de Não Logados
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
-
-  // 2. Bloqueio de Nível de Acesso (Opcional)
-  // Descomente e ajuste de acordo com a estrutura do seu objeto 'user'
-  /* 
-  if (cargoRequerido && user.cargo !== cargoRequerido) {
-    alert("Acesso negado: Você não tem permissão para acessar esta área.");
-    return <Navigate to="/login" replace />;
-  }
-  */
-
-  // Se passou em todos os testes, renderiza a tela solicitada
-  return children;
-};
-
-/* =========================================
-   LAYOUTS BASE
-   ========================================= */
-// Layout para a Landing Page (Usa a Navbar de Marketing)
-const PublicLayout = ({ children }) => (
-  <>
-    <Navbar />
-    <main>{children}</main>
-  </>
-);
-
-
-/* =========================================
-   APP CORE
-   ========================================= */
 function App() {
   return (
     <Router>
+      {/* Navbar presente em todas as rotas para navegação global */}
+      <Navbar />
+      
       <Routes>
-        
-        {/* ROTAS PÚBLICAS (Abertas para a Internet) */}
+        {/* Rota principal: Renderiza a Landing Page como uma SPA de seção única */}
         <Route path="/" element={
-          <PublicLayout>
+          <>
             <section id="hero"><Hero /></section>
             <About />
             <Numbers />
@@ -76,29 +33,17 @@ function App() {
             <Benefits />
             <section id="resultados"><Testimonials /></section>
             <CTA />
-          </PublicLayout>
+          </>
         } />
         
-        {/* O login não precisa da Navbar de marketing, fica isolado */}
+        {/* Rota dedicada ao Login Profissional */}
         <Route path="/login" element={<LoginPage />} />
         
-        {/* ROTAS PRIVADAS E BLINDADAS (Exigem Autenticação) */}
-        <Route path="/tela-admin" element={
-          <ProtectedRoute cargoRequerido="admin">
-            <DashboardLayout>
-              <TelaAdmin />
-            </DashboardLayout>
-          </ProtectedRoute>
-        } />
+        {/* Rota do Painel Administrativo */}
+        <Route path="/tela-admin" element={<TelaAdmin />} />
         
-        <Route path="/tela-professor" element={
-          <ProtectedRoute cargoRequerido="professor">
-            <DashboardLayout>
-              <TelaProfessor />
-            </DashboardLayout>
-          </ProtectedRoute>
-        } />
-
+        {/* Rota dedicada à Tela do Professor importada da pasta professor/ */}
+        <Route path="/tela-professor" element={<TelaProfessor />} />
       </Routes>
     </Router>
   );
