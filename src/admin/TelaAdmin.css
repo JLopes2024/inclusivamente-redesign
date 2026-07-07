@@ -1,40 +1,151 @@
+/* =========================================
+   TELA ADMIN - DASHBOARD GERAL
+   ========================================= */
 .admin-dashboard {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: 80px auto 0; /* Espaço para a Navbar */
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 
 .admin-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
-.welcome-card {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border: 1px solid #e5e5e5;
+.admin-header h1 {
+  color: var(--primary);
+  font-size: 24px;
+  margin: 0 0 8px 0;
 }
 
-.status-badge {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 16px;
-  background: #d1fae5;
-  color: #065f46;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
+.admin-header p {
+  color: var(--text-light);
+  margin: 0;
 }
 
 .btn-logout {
-  background: #ef4444;
-  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* =========================================
+   ALERTA DO SISTEMA
+   ========================================= */
+.alerta-global-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px rgba(217, 119, 6, 0.05);
+}
+
+.alerta-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.alerta-icone {
+  background: #fef3c7;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alerta-info h4 { margin: 0 0 4px 0; color: #92400e; font-size: 16px; }
+.alerta-info p { margin: 0; color: #b45309; font-size: 14px; }
+
+.btn-notificar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #d97706;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.btn-notificar:hover { filter: brightness(0.9); }
+
+/* =========================================
+   KPIs GLOBAIS
+   ========================================= */
+.admin-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow);
+}
+
+.kpi-icone {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-info-bloco { display: flex; flex-direction: column; }
+.kpi-label { font-size: 13px; font-weight: 600; color: var(--text-light); text-transform: uppercase; }
+.kpi-valor { font-size: 26px; font-weight: 700; color: var(--text); }
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .alerta-global-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .btn-notificar {
+    width: 100%;
+    justify-content: center;
+  }
 }
