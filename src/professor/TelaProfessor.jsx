@@ -4,7 +4,7 @@ import {
   Search, Users, Clock, Target, 
   ChevronDown, ChevronUp, FileText, CheckCircle2, AlertCircle 
 } from "lucide-react";
-import AvaliacaoPratica from "./AvaliacaoPratica"; 
+import AvaliacaoPratica from "./AvaliacaoPratica"; // NOVO: Import do componente
 import "./TelaProfessor.css";
 
 export default function TelaProfessor() {
@@ -13,8 +13,8 @@ export default function TelaProfessor() {
   const [busca, setBusca] = useState("");
   const [expandidoAtual, setExpandidoAtual] = useState(null);
   
-  // Estado para controlar o formulário dinâmico
-  const [alunoAvaliando, setAlunoAvaliando] = useState(null);
+  // NOVO: Estado para armazenar o aluno que está sendo avaliado no momento
+  const [alunoAvaliando, setAlunoAvaliando] = useState(null); 
 
   // --- LÓGICA DE DADOS (DETERMINÍSTICA E SEM BUGS DE RENDER) ---
   const PROFESSOR_LOGADO_ID = 1; // Simulação de sessão
@@ -53,7 +53,7 @@ export default function TelaProfessor() {
       return b.diasPendente - a.diasPendente; 
     });
 
-  // --- RENDERIZAÇÃO CONDICIONAL ---
+  // NOVO: Intercepta a renderização para mostrar o formulário se um aluno foi selecionado
   if (alunoAvaliando) {
     return (
       <AvaliacaoPratica 
@@ -165,7 +165,7 @@ export default function TelaProfessor() {
                   {aluno.status === "Pendente" ? (
                     <button 
                       className="btn-acao primario"
-                      onClick={() => setAlunoAvaliando(aluno)}
+                      onClick={() => setAlunoAvaliando(aluno)} // NOVO: Ação de clique adicionada aqui
                     >
                       Iniciar Avaliação Prática
                     </button>
