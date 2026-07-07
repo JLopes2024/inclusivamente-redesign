@@ -17,13 +17,11 @@ import TelaAdmin from "./admin/TelaAdmin";
 function App() {
   return (
     <Router>
-      {/* Navbar presente em todas as rotas para navegação global */}
-      <Navbar />
-      
       <Routes>
-        {/* Rota principal: Renderiza a Landing Page como uma SPA de seção única */}
+        {/* Rota principal com a Navbar presa apenas nela */}
         <Route path="/" element={
           <>
+            <Navbar /> {/* <-- Cole ela aqui dentro! */}
             <section id="hero"><Hero /></section>
             <About />
             <Numbers />
@@ -39,10 +37,10 @@ function App() {
         {/* Rota dedicada ao Login Profissional */}
         <Route path="/login" element={<LoginPage />} />
         
-        {/* Rota do Painel Administrativo */}
+        {/* Rota do Painel Administrativo (Livre da Navbar antiga) */}
         <Route path="/tela-admin" element={<TelaAdmin />} />
         
-        {/* Rota dedicada à Tela do Professor importada da pasta professor/ */}
+        {/* Rota dedicada à Tela do Professor */}
         <Route path="/tela-professor" element={<TelaProfessor />} />
       </Routes>
     </Router>
