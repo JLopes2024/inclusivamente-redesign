@@ -15,7 +15,7 @@ import CTA from "./sections/CTA";
 import LoginPage from "./pages/LoginPage";
 
 // Componentes do Sistema (Painéis)
-import NavbarDashboard from "./layout/NavbarDashboard"; // <- Ajuste o caminho se necessário
+import Navbar from "./layout/Navbar"; // <- Ajuste o caminho se necessário
 import TelaProfessor from "./professor/TelaProfessor"; 
 import TelaAdmin from "./admin/TelaAdmin";
 
