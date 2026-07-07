@@ -1,24 +1,27 @@
 import { useState } from "react";
 import { dataAluno } from "../data/dataAlunos";
-import { dataProfessor } from "../data/dataProfessor"; // NOVO: Import para buscar os dados do professor
+import { dataProfessor } from "../data/dataProfessor"; 
 import { 
   Search, Users, Clock, Target, 
-  ChevronDown, ChevronUp, FileText, CheckCircle2, AlertCircle 
+  ChevronDown, ChevronUp, FileText, CheckCircle2, AlertCircle, Mic, Check
 } from "lucide-react";
 import AvaliacaoPratica from "./AvaliacaoPratica"; 
+import AvaliacaoDiaria from "./AvaliacaoDiaria"; // Import da Diária
 import "./TelaProfessor.css";
 
 export default function TelaProfessor() {
-  // --- ESTADOS DO COMPONENTE ---
   const [filtroStatus, setFiltroStatus] = useState("Todos");
   const [busca, setBusca] = useState("");
   const [expandidoAtual, setExpandidoAtual] = useState(null);
+  
   const [alunoAvaliando, setAlunoAvaliando] = useState(null); 
+  const [alunoRegistroDiario, setAlunoRegistroDiario] = useState(null); 
+  
+  // NOVO: Estado para rastrear quem já teve o diário preenchido hoje
+  const [diariosConcluidos, setDiariosConcluidos] = useState([]); 
 
-  // --- LÓGICA DE DADOS (DETERMINÍSTICA E SEM BUGS DE RENDER) ---
-  const PROFESSOR_LOGADO_ID = 1; // Simulação de sessão
+  const PROFESSOR_LOGADO_ID = 1; 
 
-  // NOVO: Busca o perfil completo do professor baseado no ID logado
   const professorLogado = dataProfessor.find(p => p.id === PROFESSOR_LOGADO_ID);
   const nomeApresentacao = professorLogado ? professorLogado.nome : "Educador";
 
@@ -36,13 +39,11 @@ export default function TelaProfessor() {
     };
   });
 
-  // KPIs
   const totalAlunos = alunosProcessados.length;
   const comAnalise = alunosProcessados.filter(a => a.status === "Pronto").length;
   const pendentes = totalAlunos - comAnalise;
   const percentualCompleto = totalAlunos > 0 ? Math.round((comAnalise / totalAlunos) * 100) : 0;
 
-  // Filtro Duplo + Ordenação Inteligente
   const alunosFiltrados = alunosProcessados
     .filter(aluno => {
       if (filtroStatus !== "Todos" && aluno.status !== filtroStatus) return false;
@@ -65,13 +66,25 @@ export default function TelaProfessor() {
     );
   }
 
-  // --- JSX (INTERFACE DO EDUCADOR) ---
+  if (alunoRegistroDiario) {
+    return (
+      <AvaliacaoDiaria 
+        aluno={alunoRegistroDiario} 
+        onVoltar={() => setAlunoRegistroDiario(null)} 
+        // NOVO: Quando salvar, adiciona o ID do aluno na lista de concluídos
+        onSalvar={() => {
+          setDiariosConcluidos([...diariosConcluidos, alunoRegistroDiario.id]);
+          setAlunoRegistroDiario(null);
+        }}
+      />
+    );
+  }
+
   return (
     <div className="prof-dashboard">
       
       <header className="prof-header">
         <div>
-          {/* NOVO: Saudação visualmente destacada e dinâmica */}
           <span style={{ display: 'block', color: 'var(--secondary)', fontWeight: '600', fontSize: '15px', marginBottom: '6px' }}>
             👋 Olá, {nomeApresentacao}!
           </span>
@@ -133,57 +146,81 @@ export default function TelaProfessor() {
       </div>
 
       <div className="lista-alunos">
-        {alunosFiltrados.map((aluno) => (
-          <div key={aluno.id} className={`aluno-card ${aluno.status === "Pendente" ? "destaque" : ""}`}>
-            
-            <div className="aluno-card-header" onClick={() => setExpandidoAtual(expandidoAtual === aluno.id ? null : aluno.id)}>
-              <div className="aluno-resumo">
-                <h3>{aluno.nome}</h3>
-                <span>{aluno.idade} anos | {aluno.necessidade}</span>
-              </div>
-              
-              <div className="aluno-status-bloco">
-                {aluno.status === "Pendente" ? (
-                  <span className={`status-badge pendente ${aluno.urgencia === "Crítica" ? "critico" : ""}`}>
-                    <AlertCircle size={14} /> Fila: {aluno.diasPendente} dias
-                  </span>
-                ) : (
-                  <span className="status-badge pronto">
-                    <CheckCircle2 size={14} /> Finalizado
-                  </span>
-                )}
-                <button className="btn-expandir">
-                  {expandidoAtual === aluno.id ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-              </div>
-            </div>
+        {alunosFiltrados.map((aluno) => {
+          // NOVO: Verifica se o aluno atual já teve o diário preenchido hoje
+          const diarioPreenchido = diariosConcluidos.includes(aluno.id);
 
-            {expandidoAtual === aluno.id && (
-              <div className="aluno-card-body">
-                <div className="info-pac">
-                  <h4><FileText size={16} /> Relato do Responsável ({aluno.responsavel})</h4>
-                  <p>
-                    Aluno necessita de acompanhamento contínuo para desenvolvimento motor e cognitivo. 
-                    Focar na resposta a comandos voluntários e armazenamento de habilidades já aprendidas (memória não declarativa).
-                  </p>
+          return (
+            <div key={aluno.id} className={`aluno-card ${aluno.status === "Pendente" ? "destaque" : ""}`}>
+              
+              <div className="aluno-card-header" onClick={() => setExpandidoAtual(expandidoAtual === aluno.id ? null : aluno.id)}>
+                <div className="aluno-resumo">
+                  <h3>{aluno.nome}</h3>
+                  <span>{aluno.idade} anos | {aluno.necessidade}</span>
                 </div>
-                <div className="acoes-card">
+                
+                <div className="aluno-status-bloco">
                   {aluno.status === "Pendente" ? (
-                    <button 
-                      className="btn-acao primario"
-                      onClick={() => setAlunoAvaliando(aluno)} 
-                    >
-                      Iniciar Avaliação Prática
-                    </button>
+                    <span className={`status-badge pendente ${aluno.urgencia === "Crítica" ? "critico" : ""}`}>
+                      <AlertCircle size={14} /> Fila: {aluno.diasPendente} dias
+                    </span>
                   ) : (
-                    <button className="btn-acao secundario">Revisar Relatório</button>
+                    <span className="status-badge pronto">
+                      <CheckCircle2 size={14} /> Finalizado
+                    </span>
                   )}
+                  <button className="btn-expandir">
+                    {expandidoAtual === aluno.id ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                  </button>
                 </div>
               </div>
-            )}
-            
-          </div>
-        ))}
+
+              {expandidoAtual === aluno.id && (
+                <div className="aluno-card-body">
+                  <div className="info-pac">
+                    <h4><FileText size={16} /> Relato do Responsável ({aluno.responsavel})</h4>
+                    <p>
+                      Aluno necessita de acompanhamento contínuo para desenvolvimento motor e cognitivo. 
+                      Focar na resposta a comandos voluntários e armazenamento de habilidades já aprendidas (memória não declarativa).
+                    </p>
+                  </div>
+                  <div className="acoes-card">
+                    
+                    {/* NOVO: Botão Diário com cores dinâmicas */}
+                    <button 
+                      className="btn-acao"
+                      onClick={() => setAlunoRegistroDiario(aluno)}
+                      style={{ 
+                        display: 'flex', alignItems: 'center', gap: '6px',
+                        background: diarioPreenchido ? '#dcfce7' : '#fee2e2',
+                        color: diarioPreenchido ? '#166534' : '#991b1b',
+                        border: 'none'
+                      }}
+                    >
+                      {diarioPreenchido ? (
+                        <><Check size={16} /> Diário Concluído</>
+                      ) : (
+                        <><Mic size={16} /> Diário Pendente</>
+                      )}
+                    </button>
+
+                    {aluno.status === "Pendente" ? (
+                      <button 
+                        className="btn-acao primario"
+                        onClick={() => setAlunoAvaliando(aluno)} 
+                      >
+                        Avaliação PAM
+                      </button>
+                    ) : (
+                      <button className="btn-acao secundario">Revisar Relatório</button>
+                    )}
+                  </div>
+                </div>
+              )}
+              
+            </div>
+          );
+        })}
 
         {alunosFiltrados.length === 0 && (
           <div className="empty-state">
