@@ -1,0 +1,148 @@
+.avaliacao-container {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.avaliacao-header {
+  margin-bottom: 32px;
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.btn-voltar:hover { color: var(--primary); }
+
+.avaliacao-header h2 { color: var(--primary); margin: 0 0 8px 0; font-size: 22px; }
+.avaliacao-header p { color: var(--text-light); margin: 0; }
+
+.bloco-sessao {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+.info-automatica {
+  background: var(--primary);
+  color: #fff;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.info-item { display: flex; flex-direction: column; gap: 4px; }
+.info-item .label { font-size: 13px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; }
+.info-item .valor { font-weight: 600; display: flex; align-items: center; gap: 8px; font-size: 16px; }
+.info-item .valor.destaque { font-size: 20px; color: var(--secondary); }
+
+.bloco-sessao h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 24px 0;
+  font-size: 18px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.pergunta-grupo { margin-bottom: 24px; }
+.pergunta-grupo:last-child { margin-bottom: 0; }
+.pergunta-grupo > label { display: block; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+
+/* Custom Radio Cards */
+.opcoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.radio-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: var(--text-light);
+  background: var(--background);
+}
+
+.radio-card:hover { border-color: var(--secondary); background: #fff; }
+
+.radio-card input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* O que acontece quando o input invisível é checado */
+.radio-card input:checked + span { color: var(--primary); font-weight: 700; }
+.radio-card:has(input:checked) {
+  border-color: var(--secondary);
+  background: #f0fdfa; /* Um tom bem claro do seu Turquesa */
+  box-shadow: 0 4px 12px rgba(34, 199, 214, 0.1);
+}
+
+/* Campos de Texto */
+textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  resize: vertical;
+  transition: all 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background: #fff;
+}
+
+.form-actions { display: flex; justify-content: flex-end; margin-top: 32px; }
+
+.btn-salvar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.btn-salvar:hover { filter: brightness(0.9); }

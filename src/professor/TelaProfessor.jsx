@@ -4,6 +4,7 @@ import {
   Search, Users, Clock, Target, 
   ChevronDown, ChevronUp, FileText, CheckCircle2, AlertCircle 
 } from "lucide-react";
+import AvaliacaoPratica from "./AvaliacaoPratica"; 
 import "./TelaProfessor.css";
 
 export default function TelaProfessor() {
@@ -11,6 +12,9 @@ export default function TelaProfessor() {
   const [filtroStatus, setFiltroStatus] = useState("Todos");
   const [busca, setBusca] = useState("");
   const [expandidoAtual, setExpandidoAtual] = useState(null);
+  
+  // Estado para controlar o formulário dinâmico
+  const [alunoAvaliando, setAlunoAvaliando] = useState(null);
 
   // --- LÓGICA DE DADOS (DETERMINÍSTICA E SEM BUGS DE RENDER) ---
   const PROFESSOR_LOGADO_ID = 1; // Simulação de sessão
@@ -48,6 +52,16 @@ export default function TelaProfessor() {
       if (a.status === "Pronto" && b.status === "Pendente") return 1;
       return b.diasPendente - a.diasPendente; 
     });
+
+  // --- RENDERIZAÇÃO CONDICIONAL ---
+  if (alunoAvaliando) {
+    return (
+      <AvaliacaoPratica 
+        aluno={alunoAvaliando} 
+        onVoltar={() => setAlunoAvaliando(null)} 
+      />
+    );
+  }
 
   // --- JSX (INTERFACE DO EDUCADOR) ---
   return (
@@ -149,7 +163,12 @@ export default function TelaProfessor() {
                 </div>
                 <div className="acoes-card">
                   {aluno.status === "Pendente" ? (
-                    <button className="btn-acao primario">Iniciar Avaliação Prática</button>
+                    <button 
+                      className="btn-acao primario"
+                      onClick={() => setAlunoAvaliando(aluno)}
+                    >
+                      Iniciar Avaliação Prática
+                    </button>
                   ) : (
                     <button className="btn-acao secundario">Revisar Relatório</button>
                   )}
