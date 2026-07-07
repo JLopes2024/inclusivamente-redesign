@@ -1,66 +1,250 @@
+/* =========================================
+   GESTOR DE EDUCADORES (TABELA DE ALTA DENSIDADE)
+   ========================================= */
 .student-manager {
-  padding: 2rem;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  margin-top: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.sm-header {
+  padding: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sm-header h2 { margin: 0 0 16px 0; font-size: 18px; color: #0f172a; }
+
+.search-bar-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
 }
 
 .search-input {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 24px;
-  border: 1px solid #e0e0e0;
+  padding: 10px 16px 10px 40px;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 14px;
+  color: #334155;
+  transition: all 0.2s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
 }
 
-.list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+/* Estrutura da Tabela */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 }
 
-.prof-card {
+.admin-table th {
   background: #f8fafc;
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.admin-table tr:hover td {
+  background: #f8fafc;
+}
+
+/* Textos Empilhados (Stacked Data) */
+.col-principal { font-weight: 600; color: #0f172a; display: block; margin-bottom: 4px; font-size: 14px; }
+.col-secundaria { font-size: 12px; color: #64748b; display: flex; align-items: center; gap: 4px; }
+
+/* Status Labels */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-badge.verde { background: #dcfce7; color: #166534; }
+.status-badge.vermelho { background: #fee2e2; color: #991b1b; }
+.status-badge.amarelo { background: #fef9c3; color: #854d0e; }
+
+/* Ações */
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.btn-icon:hover { background: #e2e8f0; color: #0f172a; }
+.btn-icon.cobrar { color: #dc2626; background: #fef2f2; }
+.btn-icon.cobrar:hover { background: #fee2e2; color: #b91c1c; }
+
+/* =========================================
+   MENU SUSPENSO (DROPDOWN DE AÇÕES)
+   ========================================= */
+.acoes-wrapper {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.acoes-inline {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn-icon.ativo {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 6px;
+  background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  padding: 1rem;
-  transition: transform 0.1s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 220px;
+  z-index: 50; /* Garante que fique por cima da tabela */
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+  animation: fadeSlide 0.2s ease-out forwards;
 }
 
-.prof-card summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #1e293b;
-  padding: 0.5rem;
-  outline: none;
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.prof-card ul {
-  margin: 1rem 0 0 0;
-  padding-left: 1.5rem;
-  list-style: none;
-}
-
-.prof-card ul li {
-  padding: 8px 0;
-  border-bottom: 1px solid #edf2f7;
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
   color: #475569;
-  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.prof-card ul li:last-child {
-  border-bottom: none;
-}
-
-.prof-card ul li strong {
+.dropdown-item:hover {
+  background-color: #f1f5f9;
   color: #0f172a;
+}
+
+/* Opção Destrutiva (Excluir) */
+.dropdown-item.perigo {
+  color: #dc2626;
+}
+
+.dropdown-item.perigo:hover {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.dropdown-divisor {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 4px 0;
+}
+
+/* =========================================
+   RESPONSIVIDADE MOBILE (TRANSFORMANDO TABELA EM CARDS)
+   ========================================= */
+@media (max-width: 768px) {
+  .sm-header {
+    padding: 16px;
+  }
+
+  .search-bar-container {
+    max-width: 100%;
+  }
+
+  /* Força todos os elementos da tabela a se comportarem como blocos */
+  .admin-table, 
+  .admin-table thead, 
+  .admin-table tbody, 
+  .admin-table th, 
+  .admin-table td, 
+  .admin-table tr { 
+    display: block; 
+    width: 100%;
+  }
+
+  /* Esconde o cabeçalho original visualmente (mas mantém para leitores de tela) */
+  .admin-table thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* Transforma cada linha (tr) em um Card */
+  .admin-table tr { 
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    padding: 12px 16px;
+  }
+
+  /* Ajusta o espaçamento e quebra das células (td) */
+  .admin-table td { 
+    border: none;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* A última célula (Ações) não precisa de borda embaixo e os ícones ficam em linha */
+  .admin-table td:last-child {
+    border-bottom: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 16px;
+  }
+
+  /* Ajuste de segurança para o Dropdown não estourar a tela no celular */
+  .dropdown-menu {
+    right: 0;
+    width: 200px;
+    position: absolute;
+    z-index: 100;
+  }
 }
