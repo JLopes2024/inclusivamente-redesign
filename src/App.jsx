@@ -33,7 +33,7 @@ const ProtectedRoute = ({ children, cargoRequerido }) => {
 
   // 2. Bloqueio de Nível de Acesso (Opcional)
   // Descomente e ajuste de acordo com a estrutura do seu objeto 'user'
-  /*
+  /* 
   if (cargoRequerido && user.cargo !== cargoRequerido) {
     alert("Acesso negado: Você não tem permissão para acessar esta área.");
     return <Navigate to="/login" replace />;
