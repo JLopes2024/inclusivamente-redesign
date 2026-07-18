@@ -1,58 +1,59 @@
-import { Brain, Users, Activity } from "lucide-react";
+import { Brain, Users, Activity, Target, Eye, Heart } from "lucide-react";
+import "./About.css";
 
 export default function About() {
-  const cards = [
+  const pillars = [
     {
-      icon: <Brain size={36} />,
-      title: "Base científica",
-      text: "Aplicamos conhecimentos da neurociência e da educação para criar estratégias de inclusão que funcionam na prática."
+      icon: <Brain size={32} />,
+      title: "Educação",
+      text: "Consultoria e formação docente centrada em metodologias ativas e adaptação de materiais para ambientes escolares e corporativos."
     },
     {
-      icon: <Activity size={36} />,
-      title: "Aprendizagem pelo movimento",
-      text: "Utilizamos o movimento como ferramenta para desenvolver habilidades cognitivas, emocionais e sociais."
+      icon: <Users size={32} />,
+      title: "Social",
+      text: "Projetos de cidadania, oficinas socioemocionais e trilhas de convivência para promover o protagonismo e a inclusão real."
     },
     {
-      icon: <Users size={36} />,
-      title: "Transformação institucional",
-      text: "Capacitamos professores, gestores e equipes para construir ambientes escolares verdadeiramente inclusivos."
+      icon: <Activity size={32} />,
+      title: "Saúde & Bem-estar",
+      text: "Programas de psicomotricidade focados no desenvolvimento de atos voluntários, como visuoconstrução e praxia, além de estratégias para a consolidação de habilidades na memória não declarativa."
     }
   ];
 
+  
+
   return (
-    <section className="about">
+    <section className="about" id="quem-somos">
       <div className="container">
 
-        <span className="section-tag">
-          NOSSA MISSÃO
-        </span>
+        {/* CABEÇALHO E PILARES - Layout Assimétrico */}
+        <div className="about-top-grid">
+          <div className="about-text-content">
+            <span className="section-tag">QUEM SOMOS</span>
+            <h2 className="title">
+              A inclusão real acontece no acolhimento. <br />
+              <span style={{ color: "var(--secondary)" }}>Nós a aplicamos na prática.</span>
+            </h2>
+            <p className="subtitle">
+              A InclusivaMente integra educação, saúde e desenvolvimento humano para criar 
+              soluções estruturadas que acolhem e fortalecem crianças, jovens e adultos, 
+              transformando os ambientes ao seu redor.
+            </p>
+          </div>
 
-        <h2 className="title">
-          Inclusão não acontece por acaso.
-          <br />
-          Ela é construída.
-        </h2>
-
-        <p className="subtitle">
-          A InclusivaMente desenvolve metodologias que unem ciência,
-          formação continuada e práticas corporais para transformar
-          escolas em ambientes preparados para acolher, desenvolver e
-          potencializar cada estudante.
-        </p>
-
-        <div className="about-grid">
-          {cards.map((card, index) => (
-            <div className="card" key={index}>
-              <div className="card-icon">
-                {card.icon}
+          <div className="about-pillars">
+            {pillars.map((card, index) => (
+              <div className="pillar-card" key={index}>
+                <div className="pillar-icon">{card.icon}</div>
+                <div className="pillar-info">
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </div>
               </div>
-
-              <h3>{card.title}</h3>
-
-              <p>{card.text}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
 
       </div>
     </section>

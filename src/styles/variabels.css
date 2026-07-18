@@ -1,0 +1,15 @@
+:root {
+  /* Cores Oficiais Inclusiva Mente */
+  --primary: #0B1A45;     /* Azul Marinho: títulos, rodapés, autoridade */
+  --secondary: #30c8cd;   /* Verde Água: destaques, botões de ação, selos */
+  --lilac: #B88CE5;       /* Lilás: detalhes, títulos secundários, molduras */
+  --background: #FFFFFF;  /* Branco: plano de fundo, respiro visual */
+
+  /* Variações de apoio para UI Design */
+  --lilac-light: rgba(184, 140, 229, 0.15); /* Fundo suave para boxes de informação */
+  --surface: #F8FBFB;     /* Um branco com levíssimo toque de verde água para diferenciar seções */
+  --text: #1A1A1A;        /* Quase preto para textos de parágrafos (melhor leitura) */
+  --text-light: #4A5568;  /* Cinza escuro para subtítulos */
+  --border: #E2E8F0;
+  --radius: 12px;
+}

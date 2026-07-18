@@ -1,0 +1,55 @@
+/* =====================================================
+   SUBHERO.CSS - BARRA DE DESTAQUE
+===================================================== */
+.sub-hero {
+  background-color: #F4F5F7; /* Cinza bem claro e sofisticado */
+  padding: 40px 0; /* Dei uma leve diminuída no espaço aqui também */
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Garante que fique acima dos desenhos do Hero */
+  margin-top: -1px; /* Esse é o pulo do gato para "colar" as seções */
+}
+
+/* O triângulo (setinha) conectando com o Hero Azul Marinho */
+.sub-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 20px solid transparent; /* Medida corrigida para afinar a seta */
+  border-right: 20px solid transparent; /* Medida corrigida para afinar a seta */
+  border-top: 15px solid var(--primary); /* Puxa o Azul Marinho exato do fundo do Hero */
+}
+
+.sub-hero p {
+  font-size: 1.6rem;
+  color: var(--primary);
+  font-weight: 500;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+/* Destaque das palavras principais */
+.sub-hero span {
+  color: var(--secondary); /* Verde Água */
+  font-weight: 800;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sub-hero {
+    padding: 60px 0;
+  }
+  .sub-hero p {
+    font-size: 1.25rem;
+    padding: 0 16px;
+  }
+  .sub-hero::before {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid var(--primary);
+  }
+}

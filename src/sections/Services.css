@@ -1,0 +1,129 @@
+.services-modern {
+  padding: 10px 0;
+  background-color: var(--background);
+  text-align: center;
+}
+
+.services-modern .subtitle {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  color: var(--text-light);
+}
+
+/* ==========================================
+   TABS HEADER
+   ========================================== */
+.tabs-header {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.tab-btn.active {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(43, 187, 173, 0.3);
+}
+
+/* ==========================================
+   TABS CONTENT (LISTA)
+   ========================================== */
+.tab-content {
+  background: var(--surface);
+  padding: 48px;
+  border-radius: var(--radius);
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  text-align: left;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.check-icon {
+  color: var(--secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.service-card, .diff-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--lilac); /* A moldura lilás conforme o manual */
+  border-radius: var(--radius);
+  /* ... mantenha o resto do seu padding e estilos ... */
+}
+
+.tab-content h3, .service-list-item span strong {
+  color: var(--lilac);
+}
+
+/* Se quiser um efeito no hover dos botões das abas */
+.tab-btn:hover {
+  border-color: var(--lilac);
+  color: var(--lilac);
+}
+
+/* Animação suave ao trocar de aba */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+   ========================================== */
+@media (max-width: 768px) {
+  .tabs-header {
+    flex-direction: column;
+    width: 100%;
+  }
+  .tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .tab-content {
+    padding: 32px 24px;
+  }
+}

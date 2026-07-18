@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import Button from "../components/Button";
+import { Play } from "lucide-react";
+import logoInclusiva from "../assets/logo-inclusivamente.png";
+import "./Hero.css";
 
 export default function Hero() {
   const handleAgendarClick = () => {
@@ -7,48 +9,56 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero">
-      <div className="container hero-content">
+    <section className="hero-dark">
+      <div className="container hero-dark-content">
+        
+        {/* LADO ESQUERDO: Textos e CTA */}
         <motion.div
-          className="hero-left"
+          className="hero-dark-left"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="tag">Educação inclusiva que</span>
+          <span className="hero-dark-tag">Inclusiva<b>Mente</b></span>
           <h1>
-            desenvolve potencial <br />
-            <span style={{ color: 'var(--secondary)' }}>através do movimento.</span>
+            Assessoria e Consultoria<br/>
+            <span>Pedagógica</span>
           </h1>
+
           <p>
-            A InclusivaMente desenvolve soluções pedagógicas que integram educação, ciência e movimento para promover inclusão, aprendizagem e desenvolvimento humano.
+            A InclusivaMente é uma assessoria e consultoria especializada em soluções
+            pedagógicas inclusivas, sociais e de bem-estar, conectado à educação, saúde e
+            desenvolvimento humano de forma integrada.
           </p>
-          <div className="hero-buttons">
-            <Button onClick={handleAgendarClick}>Agendar Inicial</Button>
+          <button className="btn-hero-action" onClick={handleAgendarClick}>
+            Peça uma apresentação
+          </button>
+        </motion.div>
+
+        {/* LADO DIREITO: Mídia (Vídeo/Imagem) */}
+        <motion.div
+          className="hero-dark-right"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="video-wrapper">
+            <img 
+              src={logoInclusiva} 
+              alt="Inclusiva Mente Apresentação" 
+              className="video-cover" 
+            />
+            <button className="play-btn" aria-label="Assistir vídeo">
+              <Play size={32} fill="currentColor" />
+            </button>
           </div>
         </motion.div>
 
-        <motion.div 
-          className="hero-right"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Dashboard visual mantido para autoridade */}
-          <div className="dashboard">
-            <div className="dash-card big">
-              <h3>Progresso institucional</h3>
-              <div className="bar" />
-            </div>
-            <div className="dash-grid">
-              <div className="dash-card"><h4>Alunos</h4><span>+5.000</span></div>
-              <div className="dash-card"><h4>Professores</h4><span>+800</span></div>
-              <div className="dash-card"><h4>Escolas</h4><span>35</span></div>
-              <div className="dash-card highlight"><h4>Satisfação</h4><span>98%</span></div>
-            </div>
-          </div>
-        </motion.div>
       </div>
+
+      {/* OS DESENHOS DO FUNDO */}
+      <div className="bg-shape shape-top"></div>
+      <div className="bg-shape shape-bottom"></div>
     </section>
   );
 }

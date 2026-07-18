@@ -1,0 +1,141 @@
+/* =====================================================
+   FOOTER.CSS
+===================================================== */
+.footer {
+  background-color: var(--primary); /* Azul Marinho obrigatório para rodapés */
+  color: var(--surface);
+  padding-top: 80px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+}
+
+/* ==========================================
+   MARCA E SOBRE
+   ========================================== */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left; /* Acessibilidade */
+}
+
+.footer-logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: 24px;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  max-width: 400px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--surface);
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--secondary); /* Destaque em Verde Água */
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   LINKS E CONTATOS
+   ========================================== */
+.footer-links h3,
+.footer-contact h3 {
+  color: var(--surface);
+  font-size: 1.2rem;
+  font-weight: 700; /* Montserrat Bold */
+  margin-bottom: 24px;
+}
+
+.footer-links nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links nav a {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  width: fit-content;
+}
+
+.footer-links nav a:hover {
+  color: var(--secondary); /* Verde Água no hover */
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-item svg {
+  color: var(--secondary); /* Ícones em Verde Água */
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   BARRA INFERIOR (COPYRIGHT)
+   ========================================== */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   RESPONSIVIDADE (MOBILE FIRST)
+   ========================================== */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer-brand p {
+    max-width: 100%;
+  }
+}

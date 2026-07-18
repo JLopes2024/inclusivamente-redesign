@@ -1,30 +1,30 @@
-import { methodologyData } from "../data/methodologyData";
-import { Brain, Lightbulb, Sprout, Users, Star } from "lucide-react";
-import "./methodology.css";
-
-// Mapeamento de nomes de ícones para componentes
-const iconMap = {
-  Brain: <Brain size={32} />,
-  Lightbulb: <Lightbulb size={32} />,
-  Sprout: <Sprout size={32} />,
-  Users: <Users size={32} />,
-  Star: <Star size={32} />
-};
+import { GraduationCap, Presentation, BookOpen } from "lucide-react";
+import "./Methodology.css";
 
 export default function Methodology() {
+  const methods = [
+    { icon: <GraduationCap size={34} />, title: "Formação e Capacitação", text: "Trilhas de formação com metodologias ativas, online e presenciais." },
+    { icon: <Presentation size={34} />, title: "Consultoria Pedagógica", text: "Diagnóstico, adaptação curricular e plano de desenvolvimento inclusivo." },
+    { icon: <BookOpen size={34} />, title: "Produtos Educacionais", text: "Materiais, apostilas e jogos desenvolvidos com base neurocientífica." }
+  ];
+
   return (
-    <section id="metodologia" className="methodology">
-      <div className="container">
-        <h2 className="title">Metodologia</h2>
-        <p className="subtitle">
-          O movimento corporal é um poderoso instrumento pedagógico
-        </p>
-        <div className="method-grid">
-          {methodologyData.map((item) => (
-            <div className="method-card" key={item.id}>
-              <div className="method-icon">{iconMap[item.iconName]}</div>
+    <section id="metodologia" className="methodology premium-dark">
+      {/* Anéis Geométricos (Mesmo design dos Diferenciais) */}
+      <div className="geo-ring ring-primary"></div>
+      <div className="geo-ring ring-secondary"></div>
+
+      <div className="container relative-z">
+        <span className="section-tag dark-tag">METODOLOGIA</span>
+        <h2 className="title text-white">Como transformamos inclusão em prática</h2>
+      
+
+        <div className="methodology-grid">
+          {methods.map((item, index) => (
+            <div className="methodology-card" key={index}>
+              <div className="methodology-icon-glass">{item.icon}</div>
               <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <p>{item.text}</p>
             </div>
           ))}
         </div>

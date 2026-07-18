@@ -1,58 +1,179 @@
-import { AlertTriangle, BookOpen, Users } from "lucide-react";
+import { useState } from "react";
+import {
+  GraduationCap,
+  Presentation,
+  BookOpen,
+  CheckCircle2,
+  ExternalLink
+} from "lucide-react";
 
-export default function Problem() {
-  const problems = [
+import "./Services.css";
+
+export default function Services() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const products = [
     {
-      icon: <AlertTriangle size={40} />,
-      title: "Inclusão ainda depende do esforço individual",
-      text: "Muitos professores enfrentam o desafio da inclusão sem uma metodologia estruturada ou apoio contínuo."
+      id: 1,
+      title: "O Elo Invisível",
+      description:
+        "Como a regulação da mãe destrava o desenvolvimento e a neuroaprendizagem do filho.",
+      image: "/ebooks/elo-invisivel.jpg",
+      button: "Conhecer e-book",
+      link: "https://hotmart.com/pt-br/marketplace/produtos/o-elo-invisivel-como-a-regulacao-da-mae-destrava-o-desenvolvimento-e-a-neuroaprendizagem-do-filho/Y106055798C?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn2jA4DjOf85OUxxPOduVjexYjE0ju4TVf2PV-YpoHi3AXKVwo62XB4nqJ00Y_aem_C_cuaCN9OrNFMOYwMckzng&utm_medium=social&utm_source=ig&utm_content=link_in_bio"
     },
     {
-      icon: <BookOpen size={40} />,
-      title: "Capacitações pontuais geram pouco impacto",
-      text: "Treinamentos isolados dificilmente mudam a rotina escolar quando não há acompanhamento."
+      id: 2,
+      title: "Além do Nadar",
+      description:
+        "Como o movimento organiza o corpo e transforma a aprendizagem no TEA.",
+      image: "/ebooks/alem-do-nadar.jpg",
+      button: "Conhecer e-book",
+      link: "https://hotmart.com/pt-br/marketplace/produtos/alem-do-nadar-como-o-movimento-organiza-o-corpo-e-transforma-a-aprendizagem-no-tea/I105646660Y?sck=HOTMART_PRODUCT_PAGE"
+    }
+  ];
+
+  const categories = [
+    {
+      id: 0,
+      icon: <GraduationCap size={24} />,
+      title: "Formação e Capacitação",
+      items: [
+        "Trilhas de Formação Inclusiva (online e presencial)",
+        "Programa Inclusiva Mente Trainer",
+        "Capacitação Institucional",
+        "Capacitação para ONGs e empresas",
+        "Oficinas Socioemocionais"
+      ]
     },
     {
-      icon: <Users size={40} />,
-      title: "Família, escola e profissionais atuam separados",
-      text: "A falta de integração reduz o potencial de desenvolvimento dos estudantes."
+      id: 1,
+      icon: <Presentation size={24} />,
+      title: "Consultoria Pedagógica",
+      items: [
+        "Diagnóstico Institucional",
+        "Plano de Desenvolvimento Inclusivo",
+        "Acompanhamento Pedagógico",
+        "Consultoria em adaptação curricular",
+        "Psicomotricidade e Estimulação Cognitiva"
+      ]
+    },
+    {
+      id: 2,
+      icon: <BookOpen size={24} />,
+      title: "Produtos Educacionais",
+      items: [
+        "Apostilas e Cartilhas",
+        "Jogos Pedagógicos Inclusivos",
+        "E-books Exclusivos",
+        "Mini Cursos",
+        "Kits Pedagógicos"
+      ]
     }
   ];
 
   return (
-    <section className="problem">
+    <section id="servicos" className="services-modern">
       <div className="container">
 
         <span className="section-tag">
-          O DESAFIO
+          O QUE FAZEMOS
         </span>
 
-        <h2 className="problem-title">
-          A inclusão não falha por falta de vontade.
-          <br />
-          Ela falha por falta de estrutura.
+        <h2 className="title">
+          Soluções para transformar inclusão em prática
         </h2>
 
-        <p className="problem-subtitle">
-          Acreditamos que uma escola inclusiva nasce quando conhecimento,
-          metodologia e acompanhamento caminham juntos.
+        <p className="subtitle">
+          Formação, consultoria e materiais desenvolvidos com base científica
+          para promover uma educação verdadeiramente inclusiva.
         </p>
 
-        <div className="problem-grid">
+        <div className="tabs-header">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`tab-btn ${
+                activeTab === category.id ? "active" : ""
+              }`}
+              onClick={() => setActiveTab(category.id)}
+            >
+              {category.icon}
+              <span>{category.title}</span>
+            </button>
+          ))}
+        </div>
 
-          {problems.map((item, index) => (
-            <div className="problem-card" key={index}>
+        <div className="tab-content">
 
-              <div className="problem-icon">
-                {item.icon}
+          <ul className="service-list">
+            {categories[activeTab].items.map((item, index) => (
+              <li
+                key={index}
+                className="service-list-item"
+              >
+                <CheckCircle2
+                  className="check-icon"
+                  size={20}
+                />
+
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          {activeTab === 2 && (
+            <div className="ebooks-section">
+
+              <div className="ebooks-header">
+
+                <h3>Materiais em destaque</h3>
+
+                <p>
+                  Conteúdos exclusivos desenvolvidos para
+                  professores, famílias e profissionais que desejam
+                  aprofundar seus conhecimentos em inclusão.
+                </p>
+
               </div>
 
-              <h3>{item.title}</h3>
+              <div className="ebooks-grid">
 
-              <p>{item.text}</p>
+                {products.map((product) => (
+
+                  <article
+                    key={product.id}
+                    className="ebook-card"
+                  >
+
+                    
+                    <div className="ebook-content">
+
+                      <h4>{product.title}</h4>
+
+                      <p>{product.description}</p>
+
+                      <a
+                        href={product.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ebook-button"
+                      >
+                        {product.button}
+
+                        <ExternalLink size={18} />
+                      </a>
+
+                    </div>
+
+                  </article>
+
+                ))}
+
+              </div>
 
             </div>
-          ))}
+          )}
 
         </div>
 

@@ -1,63 +1,41 @@
-import { Quote } from "lucide-react";
+import { TrendingUp, ShieldCheck, Lightbulb } from "lucide-react";
+import "./Testimonials.css";
 
 export default function Testimonials() {
-
-  const testimonials = [
+  const impacts = [
     {
-      name: "Coordenação Pedagógica",
-      role: "Escola Municipal",
-      text: "A metodologia trouxe mais estrutura para nosso trabalho com inclusão. Os professores passaram a ter mais segurança no dia a dia."
+      icon: <TrendingUp size={32} />,
+      title: "Desenvolvimento Integral",
+      text: "Fortalecimento das habilidades motoras, cognitivas e socioemocionais, focando na aprendizagem significativa e no protagonismo."
     },
     {
-      name: "Professora Ana Paula",
-      role: "Ensino Fundamental",
-      text: "Antes eu me sentia perdida com alguns alunos. Hoje consigo aplicar estratégias que realmente funcionam."
+      icon: <ShieldCheck size={32} />,
+      title: "Acessibilidade Estruturada",
+      text: "Implementação de protocolos de inclusão, adaptação curricular e planos de desenvolvimento para garantir que ninguém fique para trás."
     },
     {
-      name: "Gestora Escolar",
-      role: "Rede Privada",
-      text: "Percebemos evolução não só nos alunos, mas também no engajamento dos professores."
+      icon: <Lightbulb size={32} />,
+      title: "Ambientes Transformados",
+      text: "Escolas e empresas capacitadas para acolher a neurodivergência e as deficiências com segurança, equidade e inovação."
     }
   ];
 
   return (
-    <section className="testimonials">
-
+    <section id="resultados" className="testimonials">
       <div className="container">
-
-        <span className="section-tag">DEPOIMENTOS</span>
-
-        <h2 className="title">
-          Quem aplica, vê a diferença na prática
-        </h2>
-
-        <p className="subtitle">
-          Relatos de profissionais que vivenciam a metodologia no dia a dia escolar.
-        </p>
-
-        <div className="testimonials-grid">
-
-          {testimonials.map((t, i) => (
-            <div className="testimonial-card" key={i}>
-
-              <Quote size={30} />
-
-              <p className="testimonial-text">
-                "{t.text}"
-              </p>
-
-              <div className="testimonial-author">
-                <strong>{t.name}</strong>
-                <span>{t.role}</span>
-              </div>
-
+        <span className="section-tag">O NOSSO IMPACTO</span>
+        <h2 className="title">Resultados que transformam a realidade escolar e corporativa</h2>
+        
+        <div className="impact-grid">
+          {impacts.map((item, index) => (
+            <div className="impact-card" key={index}>
+              <div className="impact-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </div>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }

@@ -1,0 +1,237 @@
+/* =====================================================
+   DIFFERENTIATORS.CSS - PREMIUM COMPACTO
+===================================================== */
+.differentiators.premium-dark {
+  position: relative;
+  background-color: var(--primary); 
+  padding: 60px 0; /* Reduzido de 80px para 60px */
+  overflow: hidden !important; 
+  color: #ffffff;
+}
+
+.relative-z {
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================
+   CABEÇALHO DA SEÇÃO
+   ========================================== */
+.diff-header {
+  text-align: center;
+  margin-bottom: 48px; /* Reduzido de 72px para aproximar os cards do título */
+}
+
+.dark-tag {
+  background-color: rgba(48, 200, 205, 0.15);
+  color: var(--secondary);
+  border: 1px solid rgba(48, 200, 205, 0.3);
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+/* ==========================================
+   EFEITO DE VIDRO (CARDS)
+   ========================================== */
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px; /* Espaço entre os cards reduzido de 32px para 24px */
+}
+
+.diff-glass-card {
+  padding: 32px; /* Reduzido de 40px para deixar o card mais enxuto */
+  border-radius: 20px;
+  
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+}
+
+.diff-glass-card:hover {
+  transform: translateY(-5px); /* Animação um pouco mais contida */
+  background: rgba(255, 255, 255, 0.06);
+  border-top-color: var(--lilac);
+}
+
+/* ==========================================
+   CONTEÚDO DOS CARDS
+   ========================================== */
+.diff-icon-glass {
+  color: var(--lilac); 
+  background: rgba(48, 200, 205, 0.1);
+  width: 60px; 
+  height: 60px; 
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
+
+.diff-glass-card h3 {
+  color: #ffffff;
+  font-size: 1.25rem; 
+  margin-bottom: 12px; 
+  font-weight: 700;
+}
+
+.diff-glass-card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-size: 0.95rem; 
+}
+
+/* ==========================================
+   ANÉIS GEOMÉTRICOS VAZADOS (FUNDO)
+   ========================================== */
+.geo-ring {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.ring-primary {
+  width: 500px;
+  height: 500px;
+  border: 3px solid rgba(184, 140, 229, 0.2); 
+  top: -120px;
+  left: -120px;
+}
+
+.ring-primary::before {
+  content: "";
+  position: absolute;
+  top: 40px; bottom: 40px; left: 40px; right: 40px;
+  border-radius: 50%;
+  border: 1px dashed rgba(184, 140, 229, 0.15);
+}
+
+.ring-secondary {
+  width: 400px;
+  height: 400px;
+  border: 3px solid rgba(48, 200, 205, 0.2); 
+  bottom: -80px;
+  right: -80px;
+}
+
+/* ==========================================
+   INDICADOR DE SCROLL (DESKTOP)
+   ========================================== */
+.swipe-indicator {
+  display: none; /* Escondido por padrão nas telas grandes */
+}
+
+/* ==========================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================== */
+@media (max-width: 992px) {
+  .diff-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 24px;
+    
+    /* Cria uma "margem de segurança" para o primeiro card não grudar na lateral esquerda */
+    scroll-padding-left: 2px; 
+    
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+
+  .diff-grid::-webkit-scrollbar {
+    display: none; 
+  }
+
+  .diff-glass-card {
+    /* Trava o card em 85% e impede que o flexbox tente "espremer" ou cortar ele */
+    flex: 0 0 85%; 
+    
+    /* A CORREÇÃO: Força o imã a alinhar o card pelo INÍCIO (esquerda), e não pelo centro */
+    scroll-snap-align: start; 
+  }
+
+  /* Ativa a setinha apenas quando vira carrossel */
+  .swipe-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 16px;
+    opacity: 0.8;
+    animation: bounceHorizontal 2s infinite ease-in-out;
+  }
+
+  /* Animação suave empurrando para a direita */
+  @keyframes bounceHorizontal {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+  }
+}
+
+@media (max-width: 768px) {
+  .differentiators.premium-dark {
+    padding: 40px 0;
+  }
+
+  .diff-header {
+    margin-bottom: 24px; 
+  }
+
+  /* Ajustes internos do card mais enxutos para mobile */
+  .diff-glass-card {
+    padding: 24px; 
+  }
+
+  .diff-icon-glass {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .diff-icon-glass svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .diff-glass-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .diff-glass-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  /* Mantém os anéis proporcionais no fundo */
+  .ring-primary {
+    width: 150px;
+    height: 150px;
+    top: -40px;
+    left: -40px;
+  }
+  .ring-primary::before {
+    top: 15px; bottom: 15px; left: 15px; right: 15px;
+  }
+  .ring-secondary {
+    width: 100px;
+    height: 200px;
+    bottom: -40px;
+    right: -40px;
+  }
+}

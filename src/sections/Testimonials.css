@@ -1,0 +1,57 @@
+.testimonials {
+  padding: 100px 0;
+  background-color: var(--surface); /* Fundo claro para contrastar com as seções ao redor */
+  text-align: center;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.impact-card {
+  background: var(--background);
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+}
+
+.impact-icon {
+  color: var(--secondary); /* Verde Água */
+  background: rgba(43, 187, 173, 0.1);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+}
+
+.impact-card h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.impact-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 48px auto 0 auto;
+  }
+}

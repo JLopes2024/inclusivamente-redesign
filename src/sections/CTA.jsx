@@ -1,34 +1,35 @@
-import Button from "../components/Button";
+import { MessageCircle } from "lucide-react";
+import "./CTA.css";
 
 export default function CTA() {
+  // Configuração do Link do WhatsApp
+  const phoneNumber = "5514991140838";
+  const message = encodeURIComponent("teste no celular da adriana");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
-    <section className="cta">
-
-      <div className="container cta-box">
-
-        <h2>
-          Vamos construir uma escola verdadeiramente inclusiva?
+    <section className="cta-section">
+      <div className="container cta-container">
+        
+        <h2 className="title cta-title">
+          Vamos construir um ambiente mais inclusivo juntos?
         </h2>
-
-        <p>
-          Fale com nossa equipe e descubra como aplicar nossa metodologia na sua instituição.
+        
+        <p className="subtitle cta-subtitle">
+          Fale com a nossa equipe agora mesmo e descubra a solução pedagógica ideal para a sua instituição, empresa ou família.
         </p>
-
-        <div className="cta-buttons">
-
-          <Button>
-            Solicitar apresentação
-          </Button>
-
-          <Button variant="secondary">
-            Falar com especialista
-          </Button>
-
-        </div>
+        
+        <a 
+          href={whatsappUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn cta-btn"
+        >
+          <MessageCircle size={24} />
+          Falar no WhatsApp
+        </a>
 
       </div>
-
     </section>
   );
 }

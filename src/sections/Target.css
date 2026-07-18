@@ -1,0 +1,91 @@
+/* =====================================================
+   TARGET.CSS
+===================================================== */
+.target {
+  padding: 40px 0; /* Aumentado para dar mais respiro[cite: 9] */
+  background: var(--surface); /* Fundo contrastante para destacar os cards[cite: 9] */
+  text-align: center;
+}
+
+.target-header {
+  margin-bottom: 64px;
+}
+
+.target-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /*[cite: 9] */
+  gap: 40px; /* Aumentado o espaço entre os cards[cite: 9] */
+}
+
+.target-card {
+  padding: 48px; /*[cite: 9] */
+  border-radius: var(--radius); /*[cite: 9] */
+  background: var(--background);
+  border: 1px solid var(--border);
+  text-align: left; /*[cite: 9] */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.target-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   IDENTIDADE VISUAL B2B (Verde Água)
+   ========================================== */
+.target-card.b2b {
+  border-top: 4px solid var(--secondary);
+}
+
+.target-card.b2b .target-icon {
+  color: var(--secondary);
+  background: rgba(48, 200, 205, 0.1);
+}
+
+/* ==========================================
+   IDENTIDADE VISUAL B2C (Lilás)
+   ========================================== */
+.target-card.b2c {
+  border-top: 4px solid var(--lilac);
+}
+
+.target-card.b2c .target-icon {
+  color: var(--lilac);
+  background: var(--lilac-light);
+}
+
+/* Estilo unificado dos ícones */
+.target-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+/* Tipografia dos cards */
+.target-card h3 {
+  color: var(--primary); /*[cite: 9] */
+  margin-bottom: 16px; /*[cite: 9] */
+  font-size: 1.5rem; /*[cite: 9] */
+  font-weight: 700;
+}
+
+.target-card p {
+  color: var(--text-light); /*[cite: 9] */
+  line-height: 1.7; /*[cite: 9] */
+  font-size: 1.05rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .target-grid { 
+    grid-template-columns: 1fr; /*[cite: 9] */
+  }
+  .target {
+    padding: 80px 0;
+  }
+}

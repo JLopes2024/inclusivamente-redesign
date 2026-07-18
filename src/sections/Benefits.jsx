@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import './Benefits.css';
 
 export default function Benefits() {
   const items = [
