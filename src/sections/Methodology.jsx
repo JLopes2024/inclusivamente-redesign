@@ -1,5 +1,5 @@
 import { GraduationCap, Presentation, BookOpen } from "lucide-react";
-import "./Methodology.css";
+import "./methodology.css";
 
 export default function Methodology() {
   const methods = [
