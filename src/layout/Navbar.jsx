@@ -102,7 +102,7 @@ export default function Navbar() {
           className="logo"
           aria-label="Ir para a página inicial"
         >
-          <img src="/logoblack.png" alt="InclusivaMente" />
+          <img src="/logo.png" alt="InclusivaMente" />
         </Link>
 
         {/* 3. Acessibilidade Inclusiva (Botão semântico com tags ARIA) */}

@@ -12,7 +12,7 @@ export default function Footer() {
         
         {/* Coluna 1: Marca e Sobre */}
         <div className="footer-brand">
-          <img src="/logowhite.png" alt="Inclusiva Mente" className="footer-logo" />
+          <img src="/logo.png" alt="InclusivaMente" className="footer-logo" />
           <p>
             Desenvolvendo potencial através do movimento. Educação, ciência e inclusão caminhando juntas para transformar o ambiente escolar.
           </p>
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
           <div className="contact-item">
             <MapPin size={20} />
-            <span>Atendimento em todo o Brasil</span>
+            <span>Atendimento</span>
           </div>
         </div>
 
