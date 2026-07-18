@@ -43,7 +43,6 @@ function App() {
             <Differentiators />
             <Problem />
             <section id="metodologia"><Methodology /></section>
-            <section id="servicos"><Services /></section>
             <Benefits />
             <section id="resultados"><Testimonials /></section>
             <CTA />
