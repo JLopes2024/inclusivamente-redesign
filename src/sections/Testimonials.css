@@ -1,57 +1,150 @@
-.testimonials {
+/* =====================================================
+   TESTIMONIALS.CSS - ESTILO MOVER (5 COLUNAS + GLASS)
+===================================================== */
+.depoimentos-section.premium-dark {
+  position: relative;
+  background-color: var(--primary);
   padding: 100px 0;
-  background-color: var(--surface); /* Fundo claro para contrastar com as seções ao redor */
+  overflow: hidden !important;
+  color: #ffffff;
+}
+.depoimentos-header h2 {
+  color: #ffffff;
+ 
+}
+.relative-z { position: relative; z-index: 10; }
+
+.depoimentos-header {
   text-align: center;
+  margin-bottom: 64px;
 }
 
-.impact-grid {
+/* ==========================================
+   GRID DO DEPOIMENTO (5 NA MESMA LINHA)
+   ========================================== */
+.depoimentos-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 48px;
+  grid-template-columns: repeat(5, 1fr); /* Força 5 colunas */
+  gap: 16px;
+  width: 100%;
 }
 
-.impact-card {
-  background: var(--background);
-  padding: 40px 32px;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.impact-card:hover {
-  transform: translateY(-5px);
-}
-
-.impact-icon {
-  color: var(--secondary); /* Verde Água */
-  background: rgba(43, 187, 173, 0.1);
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+/* ==========================================
+   CARDS COM EFEITO GLASS E ASPAS MARCA D'ÁGUA
+   ========================================== */
+.depoimento-card {
+  position: relative;
+  padding: 32px 20px;
+  border-radius: 20px;
+  
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 4px solid var(--secondary);
+  
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 24px auto;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.4s ease, background 0.4s ease;
 }
 
-.impact-card h3 {
-  color: var(--primary);
-  font-size: 1.3rem;
-  margin-bottom: 16px;
-  font-weight: 700;
+/* Alterna a cor da borda igual ao card do MOVER */
+.depoimento-card:nth-child(even) {
+  border-top-color: var(--lilac, #b88ce5);
 }
 
-.impact-card p {
-  color: var(--text-light);
+.depoimento-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* A Aspa Gigante no Fundo (Substitui a letra) */
+.quote-bg {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  font-size: 10rem;
+  font-family: Georgia, serif;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  z-index: 0;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.4s ease;
+}
+
+.depoimento-card:hover .quote-bg {
+  color: rgba(255, 255, 255, 0.08);
+}
+
+/* Conteúdo real do Card */
+.depoimento-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Força o rodapé do card para baixo */
+}
+
+.depoimento-texto {
+  font-size: 0.9rem; /* Fonte ajustada para caber bem na divisão por 5 */
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+  font-style: italic;
+  flex-grow: 1;
 }
 
+.depoimento-autor {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+}
+
+.autor-nome {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.autor-cargo {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+/* ==========================================
+   GEOMETRIA
+   ========================================== */
+.geo-ring { position: absolute; border-radius: 50%; z-index: 1; pointer-events: none; }
+.ring-primary { width: 500px; height: 500px; border: 3px solid rgba(184, 140, 229, 0.2); top: -120px; left: -120px; }
+.ring-secondary { width: 400px; height: 400px; border: 3px solid rgba(48, 200, 205, 0.2); bottom: -80px; right: -80px; }
+
+/* ==========================================
+   RESPONSIVIDADE (Tablets e Mobile)
+   ========================================== */
 @media (max-width: 1024px) {
-  .impact-grid {
-    grid-template-columns: 1fr;
-    max-width: 600px;
-    margin: 48px auto 0 auto;
+  /* No tablet/mobile vira um carrossel idêntico ao MOVER */
+  .depoimentos-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 24px;
+    scroll-padding-left: 16px;
+    scrollbar-width: none; /* Esconde a barra no Firefox */
+  }
+  
+  .depoimentos-grid::-webkit-scrollbar {
+    display: none; /* Esconde a barra no Chrome/Safari */
+  }
+  
+  .depoimento-card { 
+    flex: 0 0 80%; /* Ocupa 80% da tela no celular */
+    scroll-snap-align: start; 
+  }
+  .depoimentos-header h2 {
+    font-size: 2rem;
   }
 }

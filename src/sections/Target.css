@@ -15,7 +15,10 @@
   text-align: center;
   margin-bottom: 64px;
 }
-
+.target-header-glass h2 {
+  color: #ffffff !important; /* O !important garante que o azul global seja ignorado */
+  
+}
 /* ==========================================
    GRID B2B / B2C (2 COLUNAS)
    ========================================== */
@@ -141,7 +144,9 @@
   .target-card-glass {
     padding: 40px 24px;
   }
-  
+  .target-header-glass h2 {
+    font-size: 2rem;
+  }
   .target-watermark {
     right: -60px; /* Empurra a marca d'água um pouco mais para fora no mobile */
   }

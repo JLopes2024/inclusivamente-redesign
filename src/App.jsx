@@ -12,7 +12,7 @@ import Services from "./sections/Services";
 import Target from "./sections/Target";
 import Differentiators from "./sections/Differentiators";
 import CTA from "./sections/CTA";
-
+import Testimonials from "./sections/Testimonials";
 // Páginas
 import LoginPage from "./pages/LoginPage";
 
@@ -43,8 +43,8 @@ function App() {
             <Target />
             <section id="diferentiators"><Differentiators /></section>
             
-
-            {/* CTA direto após os diferenciais */}
+          {/*TESTEMUNHOS*/}
+        <Testimonials/>
             <CTA />
             
             <Footer />

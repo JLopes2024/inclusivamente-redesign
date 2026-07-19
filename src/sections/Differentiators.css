@@ -3,7 +3,7 @@
 ===================================================== */
 .differentiators.premium-dark {
   position: relative;
-  background-color: var(--primary); 
+  background-color: var(--background); 
   padding: 60px 0; /* Reduzido de 80px para 60px */
   overflow: hidden !important; 
   color: #ffffff;
@@ -29,7 +29,7 @@
 }
 
 .text-white {
-  color: #ffffff !important;
+  color: var (--primary)
 }
 
 /* ==========================================
@@ -68,7 +68,7 @@
    ========================================== */
 .diff-icon-glass {
   color: var(--lilac); 
-  background: rgba(48, 200, 205, 0.1);
+  background: var(--background);
   width: 60px; 
   height: 60px; 
   border-radius: 16px;
@@ -79,14 +79,14 @@
 }
 
 .diff-glass-card h3 {
-  color: #ffffff;
+  color: var(--primary);
   font-size: 1.25rem; 
   margin-bottom: 12px; 
   font-weight: 700;
 }
 
 .diff-glass-card p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--primary);
   line-height: 1.6;
   font-size: 0.95rem; 
 }
