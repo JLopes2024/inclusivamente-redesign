@@ -1,4 +1,4 @@
-import "./LegalPages.css";
+import "./LegalPage.css";
 
 export default function Termos() {
   return (

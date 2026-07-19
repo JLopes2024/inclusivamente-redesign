@@ -13,8 +13,12 @@ import Target from "./sections/Target";
 import Differentiators from "./sections/Differentiators";
 import CTA from "./sections/CTA";
 import Testimonials from "./sections/Testimonials";
-// Páginas
+
+// Páginas Extras
 import LoginPage from "./pages/LoginPage";
+// Importe as duas páginas novas aqui (ajuste o caminho da pasta conforme você criou)
+import Privacidade from "./pages/Privacidade"; 
+import Termos from "./pages/Termos";
 
 // Estilos Globais
 import './styles/variabels.css';
@@ -43,8 +47,9 @@ function App() {
             <Target />
             <section id="diferentiators"><Differentiators /></section>
             
-          {/*TESTEMUNHOS*/}
-        <Testimonials/>
+            {/*TESTEMUNHOS*/}
+            <Testimonials/>
+            
             <CTA />
             
             <Footer />
@@ -52,6 +57,23 @@ function App() {
         } />
         
         <Route path="/login" element={<LoginPage />} />
+
+        {/* NOVAS ROTAS: Páginas Legais */}
+        <Route path="/privacidade" element={
+          <>
+            <Navbar />
+            <Privacidade />
+            <Footer />
+          </>
+        } />
+
+        <Route path="/termos" element={
+          <>
+            <Navbar />
+            <Termos />
+            <Footer />
+          </>
+        } />
         
         {/* ROTA CORINGA: Se a cliente digitar um link errado, volta pra Home */}
         <Route path="*" element={<Navigate to="/" replace />} />
