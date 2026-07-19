@@ -1,5 +1,5 @@
 import { Activity, Settings, HeartHandshake, BookOpen, Sprout } from "lucide-react";
-import "./Methodology.css";
+import "./methodology.css";
 
 export default function Methodology() {
   const moverMethod = [
