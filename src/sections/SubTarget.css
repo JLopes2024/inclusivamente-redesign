@@ -1,0 +1,33 @@
+/* =====================================================
+   SUBTARGET.CSS - VERSÃO CENTRALIZADA
+===================================================== */
+.sub-target {
+  padding: 60px 0;
+  background-color: var(--background);
+  text-align: center; /* Centraliza todo o conteúdo dentro da section */
+}
+
+.sub-target p {
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza o parágrafo horizontalmente */
+}
+
+/* Destaque nas palavras-chave */
+.sub-target p span {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+  .sub-target {
+    padding: 40px 0;
+  }
+  .sub-target p {
+    font-size: 1.2rem;
+  }
+}

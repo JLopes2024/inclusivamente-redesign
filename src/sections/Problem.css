@@ -1,141 +1,69 @@
 /* =====================================================
-   SERVICES-MODERN.CSS - LAYOUT FLUIDO E PREMIUM
+   PROBLEM.CSS - PREMIUM DARK & CLEAN
 ===================================================== */
-.services-modern {
-  padding: 80px 0;
-  background-color: var(--background);
+.problem.premium-dark {
+  position: relative;
+  background-color: var(--primary);
+  padding: 140px 0; /* Um respiro maior para dar impacto à frase */
+  overflow: hidden !important;
+  color: #ffffff;
+  text-align: center; /* Centraliza tudo */
 }
 
-.services-modern .subtitle {
-  width: 100%;
-  margin: 0 auto 40px auto;
-  color: var(--text-light);
-  text-align: center;
+.relative-z {
+  position: relative;
+  z-index: 10;
 }
 
-/* ==========================================
-   TABS HEADER
-   ========================================== */
-.tabs-header {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
-}
-
-.tab-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 32px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 50px;
-  color: var(--text);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-  border-color: var(--lilac);
-  color: var(--lilac);
-}
-
-.tab-btn.active {
-  background: var(--secondary);
-  border-color: var(--secondary);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(48, 200, 205, 0.2);
-}
-
-/* ==========================================
-   TABS CONTENT (LAYOUT FLUIDO)
-   ========================================== */
-.tab-content {
-  background: var(--surface);
-  padding: 64px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  width: 100%;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-.service-list {
-  list-style: none;
+.problem-clean {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.service-list-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  font-size: 1.1rem;
+/* Tipografia de Impacto */
+.problem-title-clean {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 24px 0;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.problem-title-clean .text-secondary {
+  color: var(--secondary); /* Verde Água */
+}
+
+.problem-subtitle-clean {
+  font-size: 1.25rem;
   line-height: 1.6;
-}
-
-.check-icon {
-  color: var(--secondary);
-  flex-shrink: 0;
-  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.8); /* Branco levemente transparente para contraste */
+  max-width: 700px;
 }
 
 /* ==========================================
-   SEÇÃO E-BOOKS - LAYOUT COMPACTO
+   GEOMETRIA (Padrão visual do site)
    ========================================== */
-.ebooks-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Cards mais largos para o texto caber ao lado */
-  gap: 24px;
-  margin-top: 32px;
-}
+.geo-ring { position: absolute; border-radius: 50%; z-index: 1; pointer-events: none; }
+.ring-primary { width: 500px; height: 500px; border: 3px solid rgba(184, 140, 229, 0.2); top: -120px; left: -120px; }
+.ring-secondary { width: 400px; height: 400px; border: 3px solid rgba(48, 200, 205, 0.2); bottom: -80px; right: -80px; }
 
-.ebook-card {
-  background: var(--background);
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  display: flex; /* Alinha imagem e texto lado a lado */
-  align-items: center; /* Centraliza verticalmente */
-  gap: 20px;
-}
-
-.ebook-card img {
-  width: 8px; /* Isso que controla o tamanho da sua arte: fixa em 80px */
-  height: auto;
-  border-radius: 6px;
-  flex-shrink: 0; /* Impede que a imagem encolha */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.ebook-content h4 {
-  margin: 0 0 4px 0;
-  font-size: 1.1rem;
-  color: var(--primary);
-}
-
-.ebook-content p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--text-light);
-  line-height: 1.4;
-}
-
-.ebook-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  margin-top: 8px;
-}
 /* ==========================================
    RESPONSIVIDADE
    ========================================== */
 @media (max-width: 768px) {
-  .services-modern { padding: 40px 0; }
-  .tab-content { padding: 32px 24px; }
-  .ebooks-grid { grid-template-columns: 1fr; }
+  .problem.premium-dark {
+    padding: 80px 0;
+  }
+  
+  .problem-title-clean {
+    font-size: 2.2rem;
+  }
+  
+  .problem-subtitle-clean {
+    font-size: 1.1rem;
+  }
 }

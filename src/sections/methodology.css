@@ -1,73 +1,143 @@
 /* =====================================================
-   METHODOLOGY.CSS - PREMIUM DARK & GEOMETRY
+   METHODOLOGY.CSS - MÉTODO MOVER (5 COLUNAS)
 ===================================================== */
 .methodology.premium-dark {
   position: relative;
   background-color: var(--primary);
-  padding: 80px 0;
+  padding: 100px 0;
   overflow: hidden !important;
   color: #ffffff;
 }
 
 .relative-z { position: relative; z-index: 10; }
-.text-white-opacity { color: rgba(255, 255, 255, 0.7); }
+
+.methodology-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.methodology-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.15rem;
+  margin-top: 16px;
+}
 
 /* ==========================================
-   CARDS (Estilo Glass)
+   GRID DO MÉTODO MOVER (5 NA MESMA LINHA)
    ========================================== */
-.methodology-grid {
+.mover-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(5, 1fr); /* Força exatamente 5 colunas no desktop */
+  gap: 16px; /* Espaço reduzido para caberem todos lado a lado */
+  width: 100%;
 }
 
-.methodology-card {
-  padding: 32px;
+/* ==========================================
+   CARDS COM EFEITO GLASS E LETRA MARCA D'ÁGUA
+   ========================================== */
+.mover-card {
+  position: relative;
+  padding: 32px 20px; /* Reduzido para encaixar na divisão por 5 */
   border-radius: 20px;
+  
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 4px solid var(--lilac);
-  transition: transform 0.4s ease;
+  border-top: 4px solid var(--secondary);
+  
+  overflow: hidden;
+  transition: transform 0.4s ease, background 0.4s ease;
 }
 
-.methodology-card:hover {
-  transform: translateY(-5px);
+.mover-card:nth-child(even) {
+  border-top-color: var(--lilac);
+}
+
+.mover-card:hover {
+  transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.06);
-  border-top-color: var(--secondary);
 }
 
-.methodology-icon-glass {
-  color: var(--lilac);
+/* A Letra Gigante no Fundo */
+.mover-letter-bg {
+  position: absolute;
+  top: -15px;
+  right: -5px;
+  font-size: 8rem; /* Reduzido levemente para caber no novo card */
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  z-index: 0;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.4s ease;
+}
+
+.mover-card:hover .mover-letter-bg {
+  color: rgba(255, 255, 255, 0.08);
+}
+
+/* Conteúdo real do Card */
+.mover-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mover-icon-glass {
+  color: var(--secondary);
   background: rgba(48, 200, 205, 0.1);
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
 
+.mover-card:nth-child(even) .mover-icon-glass {
+  color: var(--lilac);
+  background: rgba(184, 140, 229, 0.1);
+}
+
+.mover-content h3 {
+  font-size: 1.25rem; /* Fonte ajustada */
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.mover-content p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  font-size: 0.9rem; /* Fonte ajustada */
+}
+
 /* ==========================================
-   GEOMETRIA (Anéis Geométricos - Reaproveitados)
+   GEOMETRIA
    ========================================== */
 .geo-ring { position: absolute; border-radius: 50%; z-index: 1; pointer-events: none; }
 .ring-primary { width: 500px; height: 500px; border: 3px solid rgba(184, 140, 229, 0.2); top: -120px; left: -120px; }
 .ring-secondary { width: 400px; height: 400px; border: 3px solid rgba(48, 200, 205, 0.2); bottom: -80px; right: -80px; }
 
 /* ==========================================
-   RESPONSIVIDADE (Carrossel Mobile)
+   RESPONSIVIDADE (Tablets e Mobile)
    ========================================== */
-@media (max-width: 992px) {
-  .methodology-grid {
+@media (max-width: 1024px) {
+  /* No tablet/mobile volta a ser um carrossel para não esmagar */
+  .mover-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
     padding-bottom: 24px;
-    scroll-padding-left: 2px;
+    scroll-padding-left: 16px;
     scrollbar-width: none;
   }
-  .methodology-card { flex: 0 0 85%; scroll-snap-align: start; }
+  
+  .mover-card { 
+    flex: 0 0 80%; /* Ocupa 80% da tela no celular */
+    scroll-snap-align: start; 
+  }
 }

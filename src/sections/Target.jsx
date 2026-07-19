@@ -3,33 +3,49 @@ import "./Target.css";
 
 export default function Target() {
   return (
-    <section className="target" id="publico">
-      <div className="container">
-        
-        {/* Cabeçalho da Seção adicionado para dar contexto */}
-        <div className="target-header">
-          <span className="section-tag">NOSSOS PÚBLICOS</span>
-          <h2 className="title">Soluções sob medida para cada necessidade</h2>
+    <section className="target-premium premium-dark" id="publico">
+      {/* Geometria de fundo idêntica ao método MOVER */}
+      <div className="geo-ring ring-primary"></div>
+      <div className="geo-ring ring-secondary"></div>
+
+      <div className="container relative-z">
+        <div className="target-header-glass">
+          <span className="section-tag dark-tag">PARA QUEM É</span>
+          <h2 className="title text-white">Desenhado para a sua realidade</h2>
         </div>
 
-        <div className="target-grid">
+        <div className="target-grid-glass">
           
-          {/* Card B2B */}
-          <div className="target-card b2b">
-            <div className="target-icon">
-              <Building2 size={36} />
+          {/* Card Institucional (B2B) */}
+          <div className="target-card-glass">
+            {/* O Efeito de Marca d'Água (Ícone Gigante no fundo) */}
+            <div className="target-watermark">
+              <Building2 size={200} strokeWidth={1} />
             </div>
-            <h3>Público Institucional (B2B)</h3>
-            <p>Soluções estruturadas e consultoria técnica para escolas, ONGs, prefeituras, empresas e condomínios que buscam excelência em diversidade e inclusão.</p>
+            
+            <div className="target-content-glass">
+              <div className="target-icon-glass b2b-icon">
+                <Building2 size={32} strokeWidth={1.5} />
+              </div>
+              <h3>Instituições</h3>
+              <p>Escolas, ONGs e empresas que precisam estruturar processos inclusivos, adaptar currículos e capacitar equipes com embasamento técnico.</p>
+            </div>
           </div>
 
-          {/* Card B2C */}
-          <div className="target-card b2c">
-            <div className="target-icon">
-              <HeartHandshake size={36} />
+          {/* Card Famílias (B2C) */}
+          <div className="target-card-glass">
+            {/* O Efeito de Marca d'Água (Ícone Gigante no fundo) */}
+            <div className="target-watermark">
+              <HeartHandshake size={200} strokeWidth={1} />
             </div>
-            <h3>Público Individual (B2C)</h3>
-            <p>Apoio especializado para famílias de crianças e jovens PCDs, autistas, neurodivergentes e profissionais em busca de desenvolvimento socioemocional.</p>
+            
+            <div className="target-content-glass">
+              <div className="target-icon-glass b2c-icon">
+                <HeartHandshake size={32} strokeWidth={1.5} />
+              </div>
+              <h3>Famílias e Profissionais</h3>
+              <p>Orientação especializada e materiais focados no neurodesenvolvimento para pais de crianças atípicas e educadores buscarem segurança no dia a dia.</p>
+            </div>
           </div>
 
         </div>

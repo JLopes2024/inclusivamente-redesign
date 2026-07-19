@@ -1,51 +1,64 @@
 /* =====================================================
-   BENEFITS.CSS
+   RESUKTADOS.CSS
 ===================================================== */
-.benefits {
-  background: var(--background);
+.resultados {
+  background: var(--primary);
   padding: 100px 0;
 }
 
-.benefits-grid {
+.resultados h2 {
+  color: var(--background);
+ 
+}
+
+.resultaods-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--background);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.resultados-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 48px;
 }
 
-.benefit-item {
+.resultados-item {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   padding: 24px 32px; /* Respiro visual */
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--primary);
+  border: 1px solid var(--lilac);
   border-radius: 999px; /* Formas bem arredondadas */
   transition: all 0.3s ease;
 }
 
-.benefit-item:hover {
-  border-color: var(--secondary);
-  box-shadow: 0 4px 12px rgba(48, 200, 205, 0.1);
+.resultados-item:hover {
+  border-color: var(--lilac);
+  box-shadow: var(--lilac);
 }
 
-.benefit-item svg {
+.resultados-item svg {
   color: var(--secondary); /* Verde Água oficial */
   flex-shrink: 0;
 }
 
-.benefit-item span {
+.resultados-item span {
   font-size: 1.05rem;
   font-weight: 500;
-  color: var(--text);
+  color: var(--background);
   text-align: left;
 }
 
 @media (max-width: 768px) {
-  .benefits-grid {
+  .resultados-grid {
     grid-template-columns: 1fr;
   }
-  .benefit-item {
+  .resultados-item {
     border-radius: var(--radius);
   }
 }

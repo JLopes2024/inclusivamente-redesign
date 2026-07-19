@@ -119,7 +119,7 @@ export default function Navbar() {
         <nav className={`nav-links ${isOpen ? "open" : ""}`}>
           <button className="nav-link-item" onClick={() => handleNavClick("metodologia")}><span>Metodologia</span></button>
           <button className="nav-link-item" onClick={() => handleNavClick("servicos")}><span>Soluções</span></button>
-          <button className="nav-link-item" onClick={() => handleNavClick("resultados")}><span>Resultados</span></button>
+          <button className="nav-link-item" onClick={() => handleNavClick("diferentiators")}><span>Diferenciais</span></button>
           
           <button className="nav-button" onClick={handleAgendarClick}>
             Agendar

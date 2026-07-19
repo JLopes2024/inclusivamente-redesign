@@ -3,13 +3,15 @@ import "./CTA.css";
 
 export default function CTA() {
   // Configuração do Link do WhatsApp
-  const phoneNumber = "5514991140838";
-  const message = encodeURIComponent("teste no celular da adriana");
+  const phoneNumber = "551199357532";
+  const message = encodeURIComponent("Olá! Gostaria de agendar uma apresentação da InclusivaMente.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
     <section className="cta-section">
       <div className="container cta-container">
+        
+        <span className="section-tag">VAMOS CONVERSAR?</span>
         
         <h2 className="title cta-title">
           Vamos construir um ambiente mais inclusivo juntos?

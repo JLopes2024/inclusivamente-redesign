@@ -17,7 +17,7 @@ export default function Footer() {
             Desenvolvendo potencial através do movimento. Educação, ciência e inclusão caminhando juntas para transformar o ambiente escolar.
           </p>
           <div className="social-links">
-            <a href="#" aria-label="Instagram da Inclusiva Mente">
+            <a href="https://www.instagram.com/inclusivamente_mover?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram da Inclusiva Mente">
               <FaInstagram size={24} />
             </a>
             <a href="#" aria-label="LinkedIn da Inclusiva Mente">
@@ -32,7 +32,6 @@ export default function Footer() {
           <nav>
             <a href="#metodologia">Nossa Metodologia</a>
             <a href="#servicos">Soluções Educacionais</a>
-            <a href="#resultados">Resultados na Prática</a>
             <Link to="/login">Área do Profissional</Link>
           </nav>
         </div>
@@ -43,10 +42,6 @@ export default function Footer() {
           <div className="contact-item">
             <Mail size={20} />
             <span>contato@inclusivamente.com.br</span>
-          </div>
-          <div className="contact-item">
-            <Phone size={20} />
-            <span>(11) 99999-9999</span>
           </div>
           <div className="contact-item">
             <MapPin size={20} />

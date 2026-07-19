@@ -1,24 +1,11 @@
 /* =====================================================
-   CTA.CSS - CHAMADA FINAL (VERSÃO COMPACTA)
+   CTA.CSS - FULL PROFISSIONAL & CLEAN
 ===================================================== */
 .cta-section {
-  background-color: var(--primary); /* Fundo Azul Marinho */
+  background-color: var(--background); /* Fundo padrão do site */
   text-align: center;
-  padding: 30px 0 !important; /* Reduzido pela metade para não ocupar a tela toda */
+  padding: 120px 0; /* Espaçamento premium (respiro) */
   position: relative;
-  overflow: hidden;
-}
-
-/* Detalhe visual Lilás ao fundo reduzido */
-.cta-section::before {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(184, 140, 229, 0.15), transparent 70%);
-  top: -50px;
-  left: -50px;
-  pointer-events: none;
 }
 
 .cta-container {
@@ -28,39 +15,50 @@
   justify-content: center;
   max-width: 800px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
-/* Forçando a cor branca para não ser atropelada pelo globals.css */
-.cta-section .cta-title {
-  color: #ffffff !important; 
-  margin-bottom: 16px;
-  font-size: 2.5rem; /* Um pouco menor para ficar mais elegante */
+/* ==========================================
+   TIPOGRAFIA
+   ========================================== */
+.cta-title {
+  color: var(--primary); /* Azul Marinho / Cor principal */
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
-.cta-section .cta-subtitle {
-  color: rgba(255, 255, 255, 0.9) !important;
-  margin-bottom: 32px;
+.cta-subtitle {
+  color: var(--text-light); /* Cor de texto mais suave */
+  margin-bottom: 48px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
 }
 
+/* ==========================================
+   BOTÃO DE CONVERSÃO
+   ========================================== */
 .cta-btn {
   display: flex;
   align-items: center;
   gap: 12px;
-  background-color: var(--secondary);
+  background-color: var(--secondary); /* Verde Água do WhatsApp */
   color: #ffffff !important;
-  padding: 16px 40px;
-  font-size: 1.1rem;
+  padding: 18px 48px;
+  font-size: 1.15rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 700;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(48, 200, 205, 0.2); /* Sombra elegante */
 }
 
 .cta-btn:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(48, 200, 205, 0.4);
+  box-shadow: 0 15px 35px rgba(48, 200, 205, 0.4);
 }
 
 /* ==========================================
@@ -68,11 +66,18 @@
    ========================================== */
 @media (max-width: 768px) {
   .cta-section {
-    padding: 48px 0 !important;
+    padding: 80px 0;
   }
-  .cta-section .cta-title {
-    font-size: 2rem;
+  
+  .cta-title {
+    font-size: 2.2rem;
   }
+  
+  .cta-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+  
   .cta-btn {
     width: 100%;
     justify-content: center;

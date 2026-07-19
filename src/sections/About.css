@@ -1,56 +1,70 @@
 /* =====================================================
-   ABOUT.CSS
+   ABOUT.CSS - PREMIUM CLEAN & STICKY SCROLL
 ===================================================== */
-.about {
-  background: var(--background);
-  padding: 30px 0;
+.about-premium {
+  background-color: var(--background);
+  padding: 120px 0; /* Maior respiro para separar das outras seções */
+}
+
+.about-grid-premium {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: flex-start;
 }
 
 /* ==========================================
-   LAYOUT SUPERIOR (TEXTO + PILARES)
+   LADO ESQUERDO (Texto Fixo)
    ========================================== */
-.about-top-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
+.about-text-sticky {
+  position: sticky;
+  top: 140px; /* Trava o título na tela enquanto os cards da direita rolam */
 }
 
-.about-text-content {
-  text-align: left;
+.about-text-sticky .title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-top: 16px;
+  color: var(--primary);
+  letter-spacing: -0.02em;
 }
 
-.about-text-content .subtitle {
+.about-text-sticky .subtitle {
   margin-top: 24px;
-  max-width: 90%;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-light);
 }
 
-.about-pillars {
+/* ==========================================
+   LADO DIREITO (Pilares Limpos)
+   ========================================== */
+.about-pillars-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
-.pillar-card {
+.pillar-item-clean {
   display: flex;
   gap: 24px;
-  padding: 32px;
+  padding: 40px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--secondary); /* Destaque lateral */
-  border-radius: var(--radius);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border-radius: 24px;
+  transition: all 0.4s ease;
 }
 
-.pillar-card:hover {
-  transform: translateX(8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  border-left-color: var(--lilac); /* Transição suave para o lilás */
+/* Efeito de destaque no Hover */
+.pillar-item-clean:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  border-color: var(--secondary);
 }
 
-.pillar-icon {
-  color: var(--primary);
-  background: rgba(11, 26, 69, 0.05);
+.pillar-icon-clean {
+  color: var(--secondary);
+  background: rgba(48, 200, 205, 0.1);
   width: 64px;
   height: 64px;
   border-radius: 16px;
@@ -58,88 +72,52 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.4s ease;
 }
 
-.pillar-info h3 {
+/* Inversão de cores do ícone no hover */
+.pillar-item-clean:hover .pillar-icon-clean {
+  transform: scale(1.1);
+  background: var(--secondary);
+  color: #ffffff;
+}
+
+.pillar-info-clean h3 {
   color: var(--primary);
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.pillar-info p {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-/* ==========================================
-   MISSÃO, VISÃO E VALORES (MVV)
-   ========================================== */
-.mvv-container {
-  margin-top: 80px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.mvv-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  text-align: left;
-}
-
-.mvv-icon {
-  color: var(--lilac);
-  background: var(--lilac-light);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mvv-content h4 {
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 12px;
+  font-weight: 700;
 }
 
-.mvv-content p {
+.pillar-info-clean p {
   color: var(--text-light);
-  font-size: 0.95rem;
   line-height: 1.6;
+  font-size: 1rem;
 }
 
 /* ==========================================
    RESPONSIVIDADE
    ========================================== */
-@media (max-width: 1024px) {
-  .about-top-grid {
+@media (max-width: 992px) {
+  .about-grid-premium {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
-  .about-text-content .subtitle {
-    max-width: 100%;
+  
+  .about-text-sticky {
+    position: relative;
+    top: 0;
   }
-  .mvv-container {
-    grid-template-columns: repeat(2, 1fr);
+  
+  .about-premium {
+    padding: 80px 0;
   }
 }
 
 @media (max-width: 768px) {
-  .pillar-card {
+  .pillar-item-clean {
     flex-direction: column;
-    gap: 16px;
-  }
-  .mvv-container {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    padding: 32px 24px;
+    gap: 20px;
   }
 }
