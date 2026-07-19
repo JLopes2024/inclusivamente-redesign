@@ -9,6 +9,11 @@
   color: #ffffff;
 }
 
+.methodology-header h2 {
+  color: #ffffff !important;
+ 
+}
+
 .relative-z { position: relative; z-index: 10; }
 
 .methodology-header {
@@ -135,7 +140,7 @@
     scroll-padding-left: 16px;
     scrollbar-width: none;
   }
-  
+   
   .mover-card { 
     flex: 0 0 80%; /* Ocupa 80% da tela no celular */
     scroll-snap-align: start; 
