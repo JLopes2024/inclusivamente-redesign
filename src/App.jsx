@@ -14,11 +14,15 @@ import Differentiators from "./sections/Differentiators";
 import CTA from "./sections/CTA";
 import Testimonials from "./sections/Testimonials";
 
-// Páginas Extras
+// Páginas Extras e Legais
 import LoginPage from "./pages/LoginPage";
-// Importe as duas páginas novas aqui (ajuste o caminho da pasta conforme você criou)
 import Privacidade from "./pages/Privacidade"; 
 import Termos from "./pages/Termos";
+
+// Módulo do Professor (Adicionado)
+import TelaProfessor from "./professor/TelaProfessor";
+import AvaliacaoDiaria from "./professor/AvaliacaoDiaria";
+import AvaliacaoPratica from "./professor/AvaliacaoPratica";
 
 // Estilos Globais
 import './styles/variabels.css';
@@ -38,27 +42,30 @@ function App() {
             <SubHero />
             
             <Problem />
-
             <About />
+            
             <section id="metodologia"><Methodology /></section>
-
+            
             <Services />
-
             <Target />
+            
             <section id="diferentiators"><Differentiators /></section>
             
-            {/*TESTEMUNHOS*/}
             <Testimonials/>
-            
             <CTA />
-            
             <Footer />
           </>
         } />
         
+        {/* ROTAS DE AUTENTICAÇÃO */}
         <Route path="/login" element={<LoginPage />} />
 
-        {/* NOVAS ROTAS: Páginas Legais */}
+        {/* ROTAS DO PROFESSOR (Adicionadas) */}
+        <Route path="/professor" element={<TelaProfessor />} />
+        <Route path="/professor/avaliacao-diaria" element={<AvaliacaoDiaria />} />
+        <Route path="/professor/avaliacao-pratica" element={<AvaliacaoPratica />} />
+
+        {/* ROTAS LEGAIS */}
         <Route path="/privacidade" element={
           <>
             <Navbar />
