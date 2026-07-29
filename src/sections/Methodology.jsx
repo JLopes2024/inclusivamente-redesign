@@ -43,7 +43,7 @@ export default function Methodology() {
       <div className="container relative-z">
         <div className="methodology-header">
           <span className="section-tag dark-tag">NOSSA METODOLOGIA</span>
-          <h2 className="title text-white">O Método Exclusivo MOVER®</h2>
+          <h2 className="title text-white">O Método Exclusivo MOVer®</h2>
           <p className="methodology-subtitle">
             Um método que integra saúde, educação e desenvolvimento humano.
           </p>
