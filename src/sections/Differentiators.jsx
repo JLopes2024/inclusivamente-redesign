@@ -34,7 +34,7 @@ export default function Differentiators() {
       <div className="container relative-z">
         <div className="diff-header">
           <span className="section-tag dark-tag">DIFERENCIAIS</span>
-          <h2 className="title text-white">Por que escolher a Inclusiva Mente?</h2>
+          <h2 className="title text-white">Por que escolher a InclusivaMente?</h2>
           
           {/* Nova Setinha Animada para Mobile */}
           <div className="swipe-indicator">
