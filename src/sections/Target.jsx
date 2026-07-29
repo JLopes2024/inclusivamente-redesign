@@ -28,7 +28,7 @@ export default function Target() {
                 <Building2 size={32} strokeWidth={1.5} />
               </div>
               <h3>Instituições</h3>
-              <p>Escolas, ONGs e empresas que precisam estruturar processos inclusivos, adaptar currículos e capacitar equipes com embasamento técnico.</p>
+              <p>Escolas, clubes, academias, ONGs e empresas que precisam estruturar processos inclusivos, adaptar currículos e capacitar equipes com embasamento técnico.</p>
             </div>
           </div>
 
