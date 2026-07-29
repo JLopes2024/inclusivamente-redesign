@@ -12,9 +12,9 @@ export default function Services() {
       title: "Formação e Capacitação",
       items: [
         "Trilhas de Formação Inclusiva (online e presencial) e Educação Corporativa" /*[cite: 2] */,
-        "Programa Inclusiva Mente Trainer (certificação para multiplicadores)" /*[cite: 2] */,
+        "Mentoria da certificação do MOVer®" /*[cite: 2] */,
         "Capacitação Institucional para professores, coordenadores, estagiários e auxiliares" /*[cite: 2] */,
-        "Capacitação de educadores sociais, equipes de ONGs e corporativas (diversidade)" /*[cite: 2] */,
+        "Capacitação de educadores sociais, equipes de ONGs, corporativas e famílias" /*[cite: 2] */,
         "Oficinas Socioemocionais: Autoconhecimento, Comunicação, Protagonismo juvenil e Habilidades para o Século XXI" /*[cite: 2] */
       ]
     },
