@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { GraduationCap, Presentation, BookOpen, CheckCircle2 } from "lucide-react";
+// IMPORTANTE: ArrowRight foi adicionado na linha abaixo
+import { GraduationCap, Presentation, BookOpen, CheckCircle2, ArrowRight } from "lucide-react";
 import "./Services.css";
 
 export default function Services() {
@@ -11,11 +12,11 @@ export default function Services() {
       icon: <GraduationCap size={24} />,
       title: "Formação e Capacitação",
       items: [
-        "Trilhas de Formação Inclusiva (online e presencial) e Educação Corporativa" /*[cite: 2] */,
-        "Mentoria da certificação do MOVer®" /*[cite: 2] */,
-        "Capacitação Institucional para professores, coordenadores, estagiários e auxiliares" /*[cite: 2] */,
-        "Capacitação de educadores sociais, equipes de ONGs, corporativas e famílias" /*[cite: 2] */,
-        "Oficinas Socioemocionais: Autoconhecimento, Comunicação, Protagonismo juvenil e Habilidades para o Século XXI" /*[cite: 2] */
+        "Trilhas de Formação Inclusiva (online e presencial) e Educação Corporativa",
+        "Mentoria da certificação do MOVer®",
+        "Capacitação Institucional para professores, coordenadores, estagiários e auxiliares",
+        "Capacitação de educadores sociais, equipes de ONGs, corporativas e famílias",
+        "Oficinas Socioemocionais: Autoconhecimento, Comunicação, Protagonismo juvenil e Habilidades para o Século XXI"
       ]
     },
     {
@@ -23,10 +24,10 @@ export default function Services() {
       icon: <Presentation size={24} />,
       title: "Consultoria Pedagógica",
       items: [
-        "Diagnóstico completo da instituição e Plano de Desenvolvimento Inclusivo" /*[cite: 2] */,
-        "Acompanhamento pedagógico mensal e Protocolos de inclusão/acessibilidade" /*[cite: 2] */,
-        "Consultoria em comportamento, adaptação curricular e materiais" /*[cite: 2] */,
-        "Consultoria para ONGs, projetos sociais e consultoria esportiva adaptada" /*[cite: 2] */,
+        "Diagnóstico completo da instituição e Plano de Desenvolvimento Inclusivo",
+        "Acompanhamento pedagógico mensal e Protocolos de inclusão/acessibilidade",
+        "Consultoria em comportamento, adaptação curricular e materiais",
+        "Consultoria para ONGs, projetos sociais e consultoria esportiva adaptada",
         "Estimulação cognitiva e psicomotricidade (foco no desenvolvimento de visuoconstrução, praxia e consolidação da memória não declarativa)"
       ]
     },
@@ -35,11 +36,11 @@ export default function Services() {
       icon: <BookOpen size={24} />,
       title: "Produtos Educacionais",
       items: [
-        "Apostilas, cadernos de atividades e cartilhas de inclusão" /*[cite: 2] */,
-        "Jogos pedagógicos inclusivos (opções digitais e impressas)" /*[cite: 2] */,
-        "E-books, mini-cursos gravados e podcasts exclusivos" /*[cite: 2] */,
-        "Kits pedagógicos estruturados para aplicação imediata" /*[cite: 2] */,
-        "Temas de oficinas prontas direcionadas para multiplicadores" /*[cite: 2] */
+        "Apostilas, cadernos de atividades e cartilhas de inclusão",
+        "Jogos pedagógicos inclusivos (opções digitais e impressas)",
+        "E-books, mini-cursos gravados e podcasts exclusivos",
+        "Kits pedagógicos estruturados para aplicação imediata",
+        "Temas de oficinas prontas direcionadas para multiplicadores"
       ]
     }
   ];
@@ -52,6 +53,12 @@ export default function Services() {
         <p className="subtitle">
           Atuamos de ponta a ponta para garantir que a inclusão seja aplicada de forma prática e com embasamento científico.
         </p>
+        
+        {/* Setinha Animada para Mobile */}
+        <div className="swipe-indicator">
+          <span>Deslize para ver mais</span>
+          <ArrowRight size={18} />
+        </div>
 
         {/* Navegação das Abas */}
         <div className="tabs-header">

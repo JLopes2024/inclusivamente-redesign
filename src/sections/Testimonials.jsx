@@ -1,4 +1,5 @@
 import "./Testimonials.css";
+import { ArrowRight } from "lucide-react";
 
 export default function Testimonials() {
   const depoimentos = [
@@ -44,6 +45,11 @@ export default function Testimonials() {
         <div className="depoimentos-header">
           <span className="section-tag dark-tag">PROVA SOCIAL</span>
           <h2 className="title text-white">Quem conhece, recomenda.</h2>
+            {/* Setinha Animada para Mobile */}
+        <div className="swipe-indicator">
+          <span>Deslize para ver mais</span>
+          <ArrowRight size={18} />
+        </div>
         </div>
       
         <div className="depoimentos-grid">

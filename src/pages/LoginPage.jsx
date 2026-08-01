@@ -21,9 +21,9 @@ export default function LoginPage() {
       
       // Roteamento condicional de alta precisão
       if (role === 'admin') {
-        navigate('/tela-admin');
+        navigate('/admin');
       } else {
-        navigate('/tela-professor');
+        navigate('/professor');
       }
     } else {
       alert("Credenciais inválidas");

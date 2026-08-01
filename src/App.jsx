@@ -24,8 +24,11 @@ import TelaProfessor from "./professor/TelaProfessor";
 import AvaliacaoDiaria from "./professor/AvaliacaoDiaria";
 import AvaliacaoPratica from "./professor/AvaliacaoPratica";
 
-// Módulo do Administrador (Importado exatamente como na sua imagem)
+// Módulo do Administrador
 import TelaAdmin from "./admin/TelaAdmin";
+import DashEducadores from "./admin/DashEducadores"; // NOVO: Dashboard de Educadores
+import DashPam from "./admin/DashPam";               // NOVO: Central PAM
+import Configuracoes from "./admin/Configuracoes";   // NOVO: Configurações
 
 // Estilos Globais
 import './styles/variabels.css';
@@ -43,19 +46,15 @@ function App() {
             
             <section id="hero"><Hero /></section>
             <SubHero />
-            
             <Problem />
             <About />
-            
             <section id="metodologia"><Methodology /></section>
-            
             <Services />
             <Target />
-            
             <section id="diferentiators"><Differentiators /></section>
-            
             <Testimonials/>
             <CTA />
+            
             <Footer />
           </>
         } />
@@ -63,8 +62,11 @@ function App() {
         {/* ROTAS DE AUTENTICAÇÃO */}
         <Route path="/login" element={<LoginPage />} />
 
-        {/* ROTA DO ADMINISTRADOR */}
+        {/* ROTAS DO ADMINISTRADOR (Painel Completo) */}
         <Route path="/admin" element={<TelaAdmin />} />
+        <Route path="/admin/educadores" element={<DashEducadores />} />
+        <Route path="/admin/pam" element={<DashPam />} />
+        <Route path="/admin/configuracoes" element={<Configuracoes />} />
 
         {/* ROTAS DO PROFESSOR */}
         <Route path="/professor" element={<TelaProfessor />} />
@@ -88,7 +90,7 @@ function App() {
           </>
         } />
         
-        {/* ROTA CORINGA: Se a cliente digitar um link errado, volta pra Home */}
+        {/* ROTA CORINGA: Se digitar um link errado, volta pra Home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

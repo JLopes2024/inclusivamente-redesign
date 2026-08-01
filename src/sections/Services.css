@@ -1,5 +1,8 @@
+/* =====================================================
+   SERVICES.CSS - PREMIUM CLEAN
+===================================================== */
 .services-modern {
-  padding: 10px 0;
+  padding: 120px 0; /* Maior espaçamento para o visual premium */
   background-color: var(--background);
   text-align: center;
 }
@@ -8,6 +11,26 @@
   max-width: 700px;
   margin: 0 auto 40px auto;
   color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   SWIPE INDICATOR (Mobile)
+   ========================================== */
+.swipe-indicator {
+  display: none; /* Fica escondido no computador */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(5px); }
 }
 
 /* ==========================================
@@ -18,7 +41,6 @@
   justify-content: center;
   gap: 16px;
   margin-bottom: 40px;
-  flex-wrap: wrap;
 }
 
 .tab-btn {
@@ -34,18 +56,19 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap; /* Impede o texto do botão de quebrar linha */
 }
 
 .tab-btn:hover {
-  border-color: var(--secondary);
-  color: var(--secondary);
+  border-color: var(--lilac);
+  color: var(--lilac);
 }
 
 .tab-btn.active {
-  background: var(--secondary);
-  border-color: var(--secondary);
+  background: var(--lilac);
+  border-color: var(--lilac);
   color: #fff;
-  box-shadow: 0 8px 20px rgba(43, 187, 173, 0.3);
+  box-shadow: 0 8px 20px rgba(184, 140, 229, 0.3);
 }
 
 /* ==========================================
@@ -82,26 +105,12 @@
 }
 
 .check-icon {
-  color: var(--secondary);
+  color: var(--lilac);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
-.service-card, .diff-card {
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-top: 4px solid var(--lilac); /* A moldura lilás conforme o manual */
-  border-radius: var(--radius);
-  /* ... mantenha o resto do seu padding e estilos ... */
-}
-
 .tab-content h3, .service-list-item span strong {
-  color: var(--lilac);
-}
-
-/* Se quiser um efeito no hover dos botões das abas */
-.tab-btn:hover {
-  border-color: var(--lilac);
   color: var(--lilac);
 }
 
@@ -115,14 +124,30 @@
    RESPONSIVIDADE
    ========================================== */
 @media (max-width: 768px) {
+  .services-modern {
+    padding: 80px 0;
+  }
+  
+  .swipe-indicator {
+    display: flex; /* Mostra a setinha animada no celular */
+  }
+
   .tabs-header {
-    flex-direction: column;
-    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto; /* Permite deslizar os botões para o lado */
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
   }
+  
+  .tabs-header::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no Chrome/Safari */
+  }
+  
   .tab-btn {
-    width: 100%;
-    justify-content: center;
+    scroll-snap-align: center;
   }
+
   .tab-content {
     padding: 32px 24px;
   }
