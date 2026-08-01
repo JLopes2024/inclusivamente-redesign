@@ -2,10 +2,10 @@
    LEGALPAGES.CSS - Estilo para Privacidade e Termos
 ===================================================== */
 .legal-page {
-  background-color: var(--background, #f8f9fa); /* Cor de fundo clara */
+  background-color: var(--primary); /* Alterado para a cor primária solicitada */
   color: var(--text-dark, #333333);
   padding: 80px 24px;
-  min-height: 80vh;
+  min-height: 100vh; /* Alterado para preencher toda a tela */
   font-family: inherit;
 }
 
@@ -51,6 +51,22 @@
 
 .legal-container li {
   margin-bottom: 8px;
+}
+
+/* NOVO: Estilo para o botão de voltar */
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff; /* Fica branco para contrastar com o fundo primary */
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 24px;
+  transition: opacity 0.2s ease;
+}
+
+.btn-voltar:hover {
+  opacity: 0.8;
 }
 
 /* ==========================================

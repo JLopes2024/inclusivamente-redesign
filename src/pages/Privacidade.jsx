@@ -1,12 +1,19 @@
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import "./LegalPage.css";
 
 export default function Privacidade() {
   return (
     <section className="legal-page">
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <Link to="/" className="btn-voltar">
+          <ArrowLeft size={20} /> Voltar para o Site
+        </Link>
+      </div>
+
       <div className="legal-container">
         <h1>Política de Privacidade</h1>
-        
-        <p>A sua privacidade é importante para nós. É política do InclusivaMente respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site InclusivaMente, e outros sites que possuímos e operamos.</p>
+ <p>A sua privacidade é importante para nós. É política do InclusivaMente respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site InclusivaMente, e outros sites que possuímos e operamos.</p>
         
         <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.</p>
         
@@ -31,7 +38,7 @@ export default function Privacidade() {
         <h2>Mais informações</h2>
         <p>Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.</p>
         
-        <p><em>Esta política é efetiva a partir de 19 July 2026 16:18.</em></p>
+        <p><em>Esta política é efetiva a partir de 19 July 2026 16:18.</em></p>        <p>A sua privacidade é importante para nós. É política do InclusivaMente respeitar a sua privacidade...</p>
       </div>
     </section>
   );

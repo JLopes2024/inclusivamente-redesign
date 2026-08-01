@@ -73,14 +73,9 @@ function App() {
         <Route path="/professor/avaliacao-diaria" element={<AvaliacaoDiaria />} />
         <Route path="/professor/avaliacao-pratica" element={<AvaliacaoPratica />} />
 
-        {/* ROTAS LEGAIS */}
-        <Route path="/privacidade" element={
-          <>
-            <Navbar />
-            <Privacidade />
-            <Footer />
-          </>
-        } />
+     {/* ROTAS LEGAIS */}
+        <Route path="/privacidade" element={<Privacidade />} />
+        <Route path="/termos" element={<Termos />} />
 
         <Route path="/termos" element={
           <>
