@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import logoInclusiva from "../assets/logo-inclusivamente.png";
+import videoInclusiva from '../assets/INCLUSIVAMENTE-VIDEO.mp4';
 import "./Hero.css";
 
 export default function Hero() {
+  // Estado para controlar se o vídeo já foi clicado para iniciar
+  const [videoIniciado, setVideoIniciado] = useState(false);
+
   const handleAgendarClick = () => {
     window.open("https://www.supersaas.com.br/schedule/Jefferson_Lopes/Triagem_-_Inclusivamente", "_blank");
   };
@@ -43,14 +48,37 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="video-wrapper">
-            <img 
-              src={logoInclusiva} 
-              alt="Inclusiva Mente Apresentação" 
-              className="video-cover" 
-            />
-            <button className="play-btn" aria-label="Assistir vídeo">
-              <Play size={32} fill="currentColor" />
-            </button>
+            {/* Lógica condicional: Mostra a capa OU o vídeo rodando */}
+            {!videoIniciado ? (
+              <>
+                <img 
+                  src={logoInclusiva} 
+                  alt="Inclusiva Mente Apresentação" 
+                  className="video-cover" 
+                />
+                <button 
+                  className="play-btn" 
+                  aria-label="Assistir vídeo"
+                  onClick={() => setVideoIniciado(true)}
+                >
+                  <Play size={32} fill="currentColor" />
+                </button>
+              </>
+            ) : (
+              <video
+                src={videoInclusiva}
+                controls
+                autoPlay
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: 'inherit' /* Herda o arredondamento do seu video-wrapper */
+                }}
+              >
+                Seu navegador não suporta a tag de vídeo.
+              </video>
+            )}
           </div>
         </motion.div>
 
