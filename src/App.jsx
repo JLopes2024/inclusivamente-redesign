@@ -2,7 +2,9 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
-import FloatingWhatsApp from "./components/FloatingWhatsApp"; // NOVO
+import FloatingWhatsApp from "./components/FloatingWhatsApp"; 
+import { HelmetProvider } from "react-helmet-async";
+import SEO from "./components/SEO";
 
 // Seções da Home (Mantidas normais para renderização imediata da vitrine)
 import Hero from "./sections/Hero";
@@ -48,45 +50,55 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* ROTA PRINCIPAL: Vitrine de Alta Conversão */}
-        <Route path="/" element={
-          <>
-            <Navbar /> 
-            <section id="hero"><Hero /></section>
-            <SubHero />
-            <Problem />
-            <About />
-            <section id="metodologia"><Methodology /></section>
-            <Services />
-            <Target />
-            <section id="diferentiators"><Differentiators /></section>
-            <Testimonials/>
-            <CTA />
-            <Footer />
-            <FloatingWhatsApp /> {/* NOVO: Botão global na Home */}
-          </>
-        } />
-        
-        {/* TODAS AS OUTRAS ROTAS AGORA USAM SUSPENSE PARA LAZY LOADING */}
-        <Route path="/login" element={<Suspense fallback={<PageLoader />}><LoginPage /></Suspense>} />
-        
-        <Route path="/admin" element={<Suspense fallback={<PageLoader />}><TelaAdmin /></Suspense>} />
-        <Route path="/admin/educadores" element={<Suspense fallback={<PageLoader />}><DashEducadores /></Suspense>} />
-        <Route path="/admin/pam" element={<Suspense fallback={<PageLoader />}><DashPam /></Suspense>} />
-        <Route path="/admin/configuracoes" element={<Suspense fallback={<PageLoader />}><Configuracoes /></Suspense>} />
-        
-        <Route path="/professor" element={<Suspense fallback={<PageLoader />}><TelaProfessor /></Suspense>} />
-        <Route path="/professor/avaliacao-diaria" element={<Suspense fallback={<PageLoader />}><AvaliacaoDiaria /></Suspense>} />
-        <Route path="/professor/avaliacao-pratica" element={<Suspense fallback={<PageLoader />}><AvaliacaoPratica /></Suspense>} />
-        
-        <Route path="/privacidade" element={<Suspense fallback={<PageLoader />}><Privacidade /></Suspense>} />
-        <Route path="/termos" element={<Suspense fallback={<PageLoader />}><Termos /></Suspense>} />
-        
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          {/* ROTA PRINCIPAL: Vitrine de Alta Conversão */}
+          <Route path="/" element={
+            <>
+              {/* COMPONENTE SEO: Título, Descrição e Imagem para Compartilhamento */}
+              <SEO 
+                title="InclusivaMente | Assessoria e Consultoria Pedagógica"
+                description="Especialistas em soluções pedagógicas inclusivas, integrando saúde, educação e desenvolvimento humano através da metodologia MOVer."
+                image="/banner-compartilhamento.jpg" 
+                url="https://inclusivamente.com.br"
+              />
+              
+              <Navbar /> 
+              <section id="hero"><Hero /></section>
+              <SubHero />
+              <Problem />
+              <About />
+              <section id="metodologia"><Methodology /></section>
+              <Services />
+              <Target />
+              <section id="diferentiators"><Differentiators /></section>
+              <Testimonials/>
+              <CTA />
+              <Footer />
+              <FloatingWhatsApp />
+            </>
+          } />
+          
+          {/* TODAS AS OUTRAS ROTAS AGORA USAM SUSPENSE PARA LAZY LOADING */}
+          <Route path="/login" element={<Suspense fallback={<PageLoader />}><LoginPage /></Suspense>} />
+          
+          <Route path="/admin" element={<Suspense fallback={<PageLoader />}><TelaAdmin /></Suspense>} />
+          <Route path="/admin/educadores" element={<Suspense fallback={<PageLoader />}><DashEducadores /></Suspense>} />
+          <Route path="/admin/pam" element={<Suspense fallback={<PageLoader />}><DashPam /></Suspense>} />
+          <Route path="/admin/configuracoes" element={<Suspense fallback={<PageLoader />}><Configuracoes /></Suspense>} />
+          
+          <Route path="/professor" element={<Suspense fallback={<PageLoader />}><TelaProfessor /></Suspense>} />
+          <Route path="/professor/avaliacao-diaria" element={<Suspense fallback={<PageLoader />}><AvaliacaoDiaria /></Suspense>} />
+          <Route path="/professor/avaliacao-pratica" element={<Suspense fallback={<PageLoader />}><AvaliacaoPratica /></Suspense>} />
+          
+          <Route path="/privacidade" element={<Suspense fallback={<PageLoader />}><Privacidade /></Suspense>} />
+          <Route path="/termos" element={<Suspense fallback={<PageLoader />}><Termos /></Suspense>} />
+          
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 

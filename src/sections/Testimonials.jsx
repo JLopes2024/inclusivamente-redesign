@@ -5,33 +5,27 @@ export default function Testimonials() {
   const depoimentos = [
     {
       id: 1,
-      texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.",
-      nome: "Mariana S. Carvalho",
-      cargo: "Coordenadora Pedagógica"
+      texto: "Em 1 mês de natação o foco dele está muito melhor, ele está bem mais calmo também",
+      nome: "Família Participante",
+      cargo: ""
     },
     {
       id: 2,
-      texto: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.",
-      nome: "Carlos Eduardo",
-      cargo: "Diretor Escolar"
+      texto: "Havia uma grande dificuldade em organização de espaço e de equipe, após a Inclusivamente tudo mudou. Somos extremamente gratos. ",
+      nome: "Gestora Semeare",
+      cargo: ""
     },
     {
       id: 3,
-      texto: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem.",
-      nome: "Ana Beatriz",
-      cargo: "Psicopedagoga"
+      texto: "O que eu esperava era que a minha filha deixasse ao menos eu tocar no cabelo dela, apenas isso, mas tudo foi muito além. A InclusivaMente trouxe movimento e trouxe foco e presença. O movimento consciente trouxe ordem e independência. Trouxeram vida.",
+      nome: "Família Participante",
+      cargo: ""
     },
     {
       id: 4,
-      texto: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.",
-      nome: "Juliana Mendes",
-      cargo: "Professora"
-    },
-    {
-      id: 5,
-      texto: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.",
-      nome: "Roberto Alves",
-      cargo: "Orientador Educacional"
+      texto: "Eu sou uma pessoa muito intensa em tudo o que faço, todas as responsabilidades faziam com que eu não percebia o quanto eu não precisava ser tão rígida. Aprendi que tudo pode ser mais maleável, me sinto mais leve.",
+      nome: "Workshop Despertar",
+      cargo: ""
     }
   ];
 
