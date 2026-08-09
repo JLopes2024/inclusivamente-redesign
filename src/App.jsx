@@ -14,6 +14,7 @@ import Problem from "./sections/Problem";
 import About from "./sections/About";
 import Methodology from "./sections/Methodology";
 import Services from "./sections/Services";
+import Ebooks from "./sections/Ebooks"; // NOVO: Importação da seção de E-books
 import Target from "./sections/Target";
 import Differentiators from "./sections/Differentiators";
 import CTA from "./sections/CTA";
@@ -73,6 +74,10 @@ function App() {
               <About />
               <section id="metodologia"><Methodology /></section>
               <Services />
+              
+              {/* NOVO: A Biblioteca Digital como Produto de Entrada */}
+              <Ebooks />
+              
               <Target />
               <section id="diferentiators"><Differentiators /></section>
               <Testimonials/>
