@@ -1,12 +1,23 @@
 /* =====================================================
-   FOOTER.CSS - MICRO EDITION (ONLY BOTTOM BAR)
+   FOOTER.CSS - MICRO EDITION (PREMIUM)
 ===================================================== */
 .footer-micro {
-  background-color: var(--primary); /* Azul escuro principal */
+  background-color: var(--primary); 
   color: #ffffff;
-  padding: 32px 0; /* Respiro ajustado para uma barra fina */
+  padding: 32px 0; 
   font-family: inherit;
-  border-top: 1px solid rgba(255, 255, 255, 0.06); /* Linha sutil para separar do conteúdo acima */
+  position: relative; /* Necessário para a linha de gradiente absoluta */
+}
+
+/* 1. Linha de Topo em Gradiente (Efeito Premium) */
+.footer-micro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(48, 200, 205, 0.4), transparent);
 }
 
 .footer-micro-content {
@@ -18,15 +29,23 @@
   padding: 0 24px;
 }
 
-/* Propriedade flex: 1 garante que a coluna da esquerda e direita 
-   tenham o mesmo "peso", forçando o ícone social a ficar no centro exato */
 .footer-copy {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 0.85rem;
   flex: 1;
   text-align: left;
 }
 
+.footer-version {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  margin-left: 12px;
+  letter-spacing: 1px;
+}
+
+/* =====================================================
+   REDES SOCIAIS COM EFEITO GLOW
+===================================================== */
 .footer-social-micro {
   display: flex;
   gap: 28px;
@@ -35,17 +54,22 @@
 }
 
 .footer-social-micro a {
-  color: rgba(255, 255, 255, 0.35);
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
 }
 
+/* 2. Hover com elevação, escala e brilho na cor Verde Água */
 .footer-social-micro a:hover {
-  color: var(--secondary, #30C8CD); /* Verde água no hover */
-  transform: translateY(-2px);
+  color: var(--secondary); 
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(48, 200, 205, 0.5));
 }
 
+/* =====================================================
+   LINKS LEGAIS COM SUBLINHADO ANIMADO
+===================================================== */
 .footer-legal-micro {
   display: flex;
   gap: 24px;
@@ -54,26 +78,45 @@
 }
 
 .footer-legal-micro a {
-  color: rgba(255, 255, 255, 0.35);
+  position: relative;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.3s ease;
+  padding-bottom: 4px;
+}
+
+/* 3. A linha invisível que fica sob o texto */
+.footer-legal-micro a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--secondary);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 .footer-legal-micro a:hover {
   color: #ffffff;
 }
 
+/* Expande a linha do centro para as bordas ao passar o mouse */
+.footer-legal-micro a:hover::after {
+  width: 100%;
+}
+
 /* ==========================================
    RESPONSIVIDADE (MOBILE)
-   ========================================== */
+========================================== */
 @media (max-width: 768px) {
   .footer-micro-content {
     flex-direction: column;
     gap: 24px;
   }
 
-  /* No celular, tira a proporção flex e alinha tudo ao centro */
   .footer-copy, 
   .footer-social-micro, 
   .footer-legal-micro {

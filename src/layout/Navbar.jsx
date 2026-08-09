@@ -6,15 +6,14 @@ import "./navbar.css";
 
 export default function Navbar() {
   const [scroll, setScroll] = useState(false);
-  const [isHidden, setIsHidden] = useState(false); // Novo estado para controlar visibilidade
+  const [isHidden, setIsHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
-  const lastScrollY = useRef(0); // Guarda a última posição sem forçar re-render
+  const lastScrollY = useRef(0);
   
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 1 & 4. Otimização de Performance no Scroll (requestAnimationFrame + passive)
   useEffect(() => {
     let ticking = false;
     
@@ -23,19 +22,14 @@ export default function Navbar() {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
 
-          // Lógica do Fundo (mantida do seu código original)
           setScroll(currentScrollY > 30);
 
-          // Lógica de Esconder/Mostrar a Pílula
           if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-            // Se rolou para baixo e já desceu mais de 100px, esconde
             setIsHidden(true);
           } else {
-            // Se rolou para cima (ou está no topo), mostra
             setIsHidden(false);
           }
 
-          // Atualiza a referência da última posição
           lastScrollY.current = currentScrollY;
           ticking = false;
         });
@@ -47,7 +41,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 2. Trava de Scroll do Fundo (Menu Mobile)
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -55,25 +48,21 @@ export default function Navbar() {
       document.body.style.overflow = "unset";
     }
     
-    // Limpeza de segurança ao desmontar o componente
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
-  // Lógica para escutar a URL e rolar a página nativamente ao renderizar
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace("#", "");
       const element = document.getElementById(id);
       if (element) {
-        // Pequeno atraso apenas para garantir que a DOM foi montada na troca de rota
         setTimeout(() => element.scrollIntoView({ behavior: "smooth" }), 50);
       }
     }
   }, [location]);
 
-  // 1. Navegação Robusta baseada em Hash
   const handleNavClick = (id) => {
     setIsOpen(false);
     if (location.pathname !== "/") {
@@ -93,7 +82,6 @@ export default function Navbar() {
   };
 
   return (
-    // Adicionamos a classe 'hidden' dinamicamente baseada na direção do scroll
     <header className={`navbar ${scroll ? "active" : ""} ${isHidden ? "hidden" : ""}`}>
       <div className="container nav-content">
         <Link 
@@ -105,7 +93,6 @@ export default function Navbar() {
           <img src="/logo.png" alt="InclusivaMente" />
         </Link>
 
-        {/* 3. Acessibilidade Inclusiva (Botão semântico com tags ARIA) */}
         <button 
           className="hamburger" 
           onClick={() => setIsOpen(!isOpen)}
@@ -121,8 +108,9 @@ export default function Navbar() {
           <button className="nav-link-item" onClick={() => handleNavClick("servicos")}><span>Soluções</span></button>
           <button className="nav-link-item" onClick={() => handleNavClick("diferentiators")}><span>Diferenciais</span></button>
           
-          <button className="nav-button" onClick={handleAgendarClick}>
-            Agendar
+          {/* Agendar agora usa a classe padrão de link para se manter uniforme */}
+          <button className="nav-link-item" onClick={handleAgendarClick}>
+            <span>Agendar</span>
           </button>
           
           <Link to="/login" className="nav-login" onClick={() => setIsOpen(false)}>

@@ -8,6 +8,7 @@ import SEO from "./components/SEO";
 
 // Seções da Home (Mantidas normais para renderização imediata da vitrine)
 import Hero from "./sections/Hero";
+import InfiniteTicker from "./components/InfiniteTicker";
 import SubHero from "./sections/SubHero";
 import Problem from "./sections/Problem";
 import About from "./sections/About";
@@ -66,6 +67,7 @@ function App() {
               
               <Navbar /> 
               <section id="hero"><Hero /></section>
+              <InfiniteTicker />
               <SubHero />
               <Problem />
               <About />
