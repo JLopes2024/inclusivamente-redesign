@@ -1,8 +1,10 @@
+import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
+import FloatingWhatsApp from "./components/FloatingWhatsApp"; // NOVO
 
-// Seções da Home
+// Seções da Home (Mantidas normais para renderização imediata da vitrine)
 import Hero from "./sections/Hero";
 import SubHero from "./sections/SubHero";
 import Problem from "./sections/Problem";
@@ -14,26 +16,35 @@ import Differentiators from "./sections/Differentiators";
 import CTA from "./sections/CTA";
 import Testimonials from "./sections/Testimonials";
 
-// Páginas Extras e Legais
-import LoginPage from "./pages/LoginPage";
-import Privacidade from "./pages/Privacidade"; 
-import Termos from "./pages/Termos";
-
-// Módulo do Professor
-import TelaProfessor from "./professor/TelaProfessor";
-import AvaliacaoDiaria from "./professor/AvaliacaoDiaria";
-import AvaliacaoPratica from "./professor/AvaliacaoPratica";
-
-// Módulo do Administrador
-import TelaAdmin from "./admin/TelaAdmin";
-import DashEducadores from "./admin/DashEducadores"; // NOVO: Dashboard de Educadores
-import DashPam from "./admin/DashPam";               // NOVO: Central PAM
-import Configuracoes from "./admin/Configuracoes";   // NOVO: Configurações
-
 // Estilos Globais
 import './styles/variabels.css';
 import './styles/animations.css';
 import './styles/globals.css';
+
+// ==========================================
+// CODE SPLITTING (LAZY LOADING) DAS ROTAS INTERNAS E LEGAIS
+// ==========================================
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const Privacidade = lazy(() => import("./pages/Privacidade"));
+const Termos = lazy(() => import("./pages/Termos"));
+
+// Painel do Professor
+const TelaProfessor = lazy(() => import("./professor/TelaProfessor"));
+const AvaliacaoDiaria = lazy(() => import("./professor/AvaliacaoDiaria"));
+const AvaliacaoPratica = lazy(() => import("./professor/AvaliacaoPratica"));
+
+// Painel Admin
+const TelaAdmin = lazy(() => import("./admin/TelaAdmin"));
+const DashEducadores = lazy(() => import("./admin/DashEducadores"));
+const DashPam = lazy(() => import("./admin/DashPam"));
+const Configuracoes = lazy(() => import("./admin/Configuracoes"));
+
+// Componente simples de Loading para as rotas Lazy
+const PageLoader = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'var(--primary)' }}>
+    <h2 style={{ color: 'white' }}>Carregando...</h2>
+  </div>
+);
 
 function App() {
   return (
@@ -43,7 +54,6 @@ function App() {
         <Route path="/" element={
           <>
             <Navbar /> 
-            
             <section id="hero"><Hero /></section>
             <SubHero />
             <Problem />
@@ -54,38 +64,26 @@ function App() {
             <section id="diferentiators"><Differentiators /></section>
             <Testimonials/>
             <CTA />
-            
             <Footer />
+            <FloatingWhatsApp /> {/* NOVO: Botão global na Home */}
           </>
         } />
         
-        {/* ROTAS DE AUTENTICAÇÃO */}
-        <Route path="/login" element={<LoginPage />} />
-
-        {/* ROTAS DO ADMINISTRADOR (Painel Completo) */}
-        <Route path="/admin" element={<TelaAdmin />} />
-        <Route path="/admin/educadores" element={<DashEducadores />} />
-        <Route path="/admin/pam" element={<DashPam />} />
-        <Route path="/admin/configuracoes" element={<Configuracoes />} />
-
-        {/* ROTAS DO PROFESSOR */}
-        <Route path="/professor" element={<TelaProfessor />} />
-        <Route path="/professor/avaliacao-diaria" element={<AvaliacaoDiaria />} />
-        <Route path="/professor/avaliacao-pratica" element={<AvaliacaoPratica />} />
-
-     {/* ROTAS LEGAIS */}
-        <Route path="/privacidade" element={<Privacidade />} />
-        <Route path="/termos" element={<Termos />} />
-
-        <Route path="/termos" element={
-          <>
-            <Navbar />
-            <Termos />
-            <Footer />
-          </>
-        } />
+        {/* TODAS AS OUTRAS ROTAS AGORA USAM SUSPENSE PARA LAZY LOADING */}
+        <Route path="/login" element={<Suspense fallback={<PageLoader />}><LoginPage /></Suspense>} />
         
-        {/* ROTA CORINGA: Se digitar um link errado, volta pra Home */}
+        <Route path="/admin" element={<Suspense fallback={<PageLoader />}><TelaAdmin /></Suspense>} />
+        <Route path="/admin/educadores" element={<Suspense fallback={<PageLoader />}><DashEducadores /></Suspense>} />
+        <Route path="/admin/pam" element={<Suspense fallback={<PageLoader />}><DashPam /></Suspense>} />
+        <Route path="/admin/configuracoes" element={<Suspense fallback={<PageLoader />}><Configuracoes /></Suspense>} />
+        
+        <Route path="/professor" element={<Suspense fallback={<PageLoader />}><TelaProfessor /></Suspense>} />
+        <Route path="/professor/avaliacao-diaria" element={<Suspense fallback={<PageLoader />}><AvaliacaoDiaria /></Suspense>} />
+        <Route path="/professor/avaliacao-pratica" element={<Suspense fallback={<PageLoader />}><AvaliacaoPratica /></Suspense>} />
+        
+        <Route path="/privacidade" element={<Suspense fallback={<PageLoader />}><Privacidade /></Suspense>} />
+        <Route path="/termos" element={<Suspense fallback={<PageLoader />}><Termos /></Suspense>} />
+        
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

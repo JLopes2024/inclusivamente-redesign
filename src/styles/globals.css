@@ -200,3 +200,24 @@ section::before {
     font-size: 4.5rem;
   }
 }
+
+/* =====================================================
+   COMPONENTES GLOBAIS
+===================================================== */
+/* Indicador de Deslize (Mobile) */
+.swipe-indicator {
+  display: none; /* Escondido por padrão no desktop */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-light); /* Vai usar a cor definida no seu variabels.css */
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  animation: pulse 2s infinite;
+}
+
+@media (max-width: 1024px) {
+  .swipe-indicator {
+    display: flex; /* Aparece apenas em tablets e celulares */
+  }
+}

@@ -1,13 +1,20 @@
+import { motion } from "framer-motion";
 import "./Problem.css";
 
 export default function Problem() {
   return (
     <section id="problema" className="problem premium-dark">
-      {/* Geometria de fundo mantida para consistência visual */}
       <div className="geo-ring ring-primary"></div>
       <div className="geo-ring ring-secondary"></div>
 
-      <div className="container relative-z problem-clean">
+      {/* Usando motion.div com whileInView para animar no scroll */}
+      <motion.div 
+        className="container relative-z problem-clean"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <span className="section-tag dark-tag">A REALIDADE</span>
         
         <h2 className="problem-title-clean">
@@ -19,7 +26,7 @@ export default function Problem() {
           Muitas instituições aceitam a matrícula, mas na prática o aluno neurodivergente fica isolado. 
           Enquanto não houver capacitação real e metodologias baseadas em evidências, o ecossistema educacional continuará falhando com quem mais precisa.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }

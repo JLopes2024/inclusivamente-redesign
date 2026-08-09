@@ -1,4 +1,5 @@
-import { Activity, Settings, HeartHandshake, BookOpen, Sprout, ArrowRight } from "lucide-react";
+import { Activity, Settings, HeartHandshake, BookOpen, Sprout } from "lucide-react";
+import SwipeIndicator from "../components/SwipeIndicator";
 import "./methodology.css";
 
 export default function Methodology() {
@@ -47,14 +48,10 @@ export default function Methodology() {
           <p className="methodology-subtitle">
             Um método que integra saúde, educação e desenvolvimento humano.
           </p>
-              {/* Nova Setinha Animada para Mobile */}
-        <div className="swipe-indicator">
-          <span>Deslize para ver mais</span>
-          <ArrowRight size={18} />
+          
+          {/* Nova Setinha Animada para Mobile componentizada */}
+          <SwipeIndicator />
         </div>
-        </div>
-        
-    
         
         <div className="mover-grid">
           {moverMethod.map((item, index) => (

@@ -1,9 +1,7 @@
 import "./CTA.css";
+import { LINKS } from "../constants";
 
 export default function CTA() {
-  // Link atualizado conforme a sua solicitação
-  const whatsappUrl = "https://api.whatsapp.com/send/?phone=5511993575324&text&type=phone_number&app_absent=0";
-
   return (
     <section className="cta-section">
       <div className="container cta-container">
@@ -18,8 +16,8 @@ export default function CTA() {
           Fale com a nossa equipe agora mesmo e descubra a solução pedagógica ideal para a sua instituição, empresa ou família.
         </p>
         
-        <a 
-          href={whatsappUrl} 
+     <a 
+          href={LINKS.WHATSAPP} 
           target="_blank" 
           rel="noopener noreferrer" 
           className="btn cta-btn"

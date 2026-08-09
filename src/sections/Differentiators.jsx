@@ -1,4 +1,5 @@
-import { Zap, Target, Users, BookOpenCheck, ArrowRight } from "lucide-react";
+import { Zap, Target, Users, BookOpenCheck } from "lucide-react";
+import SwipeIndicator from "../components/SwipeIndicator";
 import "./Differentiators.css";
 
 export default function Differentiators() {
@@ -36,11 +37,8 @@ export default function Differentiators() {
           <span className="section-tag dark-tag">DIFERENCIAIS</span>
           <h2 className="title text-white">Por que escolher a InclusivaMente?</h2>
           
-          {/* Nova Setinha Animada para Mobile */}
-          <div className="swipe-indicator">
-            <span>Deslize para ver mais</span>
-            <ArrowRight size={18} />
-          </div>
+          {/* Nova Setinha Animada para Mobile componentizada */}
+          <SwipeIndicator />
         </div>
         
         <div className="diff-grid">

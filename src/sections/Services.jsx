@@ -1,6 +1,6 @@
 import { useState } from "react";
-// IMPORTANTE: ArrowRight foi adicionado na linha abaixo
-import { GraduationCap, Presentation, BookOpen, CheckCircle2, ArrowRight } from "lucide-react";
+import { GraduationCap, Presentation, BookOpen, CheckCircle2 } from "lucide-react";
+import SwipeIndicator from "../components/SwipeIndicator";
 import "./Services.css";
 
 export default function Services() {
@@ -54,17 +54,17 @@ export default function Services() {
           Atuamos de ponta a ponta para garantir que a inclusão seja aplicada de forma prática e com embasamento científico.
         </p>
         
-        {/* Setinha Animada para Mobile */}
-        <div className="swipe-indicator">
-          <span>Deslize para ver mais</span>
-          <ArrowRight size={18} />
-        </div>
+        <SwipeIndicator />
 
-        {/* Navegação das Abas */}
-        <div className="tabs-header">
+        {/* Navegação das Abas com Acessibilidade (a11y) */}
+        <div className="tabs-header" role="tablist">
           {categories.map((cat) => (
             <button
               key={cat.id}
+              role="tab"
+              aria-selected={activeTab === cat.id}
+              aria-controls={`aba-conteudo-${cat.id}`}
+              tabIndex={activeTab === cat.id ? 0 : -1}
               className={`tab-btn ${activeTab === cat.id ? "active" : ""}`}
               onClick={() => setActiveTab(cat.id)}
             >
@@ -74,8 +74,12 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Conteúdo da Aba Ativa */}
-        <div className="tab-content">
+        {/* Conteúdo da Aba Ativa com Acessibilidade (a11y) */}
+        <div 
+          className="tab-content"
+          role="tabpanel"
+          id={`aba-conteudo-${activeTab}`}
+        >
           <ul className="service-list">
             {categories[activeTab].items.map((item, index) => (
               <li key={index} className="service-list-item">

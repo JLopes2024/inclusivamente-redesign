@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import logoInclusiva from "../assets/logo-inclusivamente.png";
 import videoInclusiva from '../assets/INCLUSIVAMENTE-VIDEO.mp4';
+import { LINKS } from "../constants";
 import "./Hero.css";
 
 export default function Hero() {
@@ -10,7 +11,7 @@ export default function Hero() {
   const [videoIniciado, setVideoIniciado] = useState(false);
 
   const handleAgendarClick = () => {
-    window.open("https://www.supersaas.com.br/schedule/Jefferson_Lopes/Triagem_-_Inclusivamente", "_blank");
+    window.open(LINKS.AGENDAMENTO, "_blank");
   };
 
   return (
@@ -69,6 +70,8 @@ export default function Hero() {
                 src={videoInclusiva}
                 controls
                 autoPlay
+                muted       /* NOVO: Essencial para o autoplay funcionar no mobile */
+              playsInline /* NOVO: Impede que o iOS jogue o vídeo em tela cheia forçada */
                 style={{
                   width: '100%',
                   height: '100%',
