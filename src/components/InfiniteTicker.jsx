@@ -4,12 +4,12 @@ export default function InfiniteTicker() {
   // As palavras que vão ficar rolando na tela. 
   // O "•" funciona como um separador elegante.
   const items = [
-    "Educação Inclusiva", "•",
-    "Neurociência", "•",
-    "Psicomotricidade", "•",
-    "Desenvolvimento Humano", "•",
-    "Metodologia MOVer®", "•",
-    "Capacitação Docente", "•"
+    "EDUCAÇÃO INCLUSIVA", "•",
+    "NEUROCIÊNCIA", "•",
+    "PSICOMOTRICIDADE", "•",
+    "DESENVOLVIMENTO HUMANO", "•",
+    "METODOLOGIA MOVer®", "•",
+    "CAPACITAÇÃO DOCENTE", "•"
   ];
 
   return (
