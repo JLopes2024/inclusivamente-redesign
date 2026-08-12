@@ -90,19 +90,21 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
-  background-color: #1a1a1a;
+  background-color: transparent; /* MUDEI DE #1a1a1a PARA TRANSPARENTE */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .video-cover {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, transform 3s ease;
+  object-fit: contain; /* MUDADO DE cover PARA contain (para a logo inteira aparecer sem cortes) */
+  opacity: 1; /* REMOVIDA A OPACIDADE PARA O BRANCO DA LOGO FICAR PURO */
+  transition: transform 3s ease;
 }
 
 .video-wrapper:hover .video-cover {
-  opacity: 0.5;
   transform: scale(1.05); 
 }
 
