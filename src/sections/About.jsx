@@ -15,8 +15,8 @@ export default function About() {
     },
     {
       icon: <Activity size={28} strokeWidth={1.5} />,
-      title: "Saúde & Bem-estar",
-      text: "Programas de psicomotricidade focados no desenvolvimento de atos voluntários, como visuoconstrução e praxia, além de estratégias para a consolidação de habilidades na memória não declarativa."
+      title: "Atividade Física e Adaptada",
+      text: "Programas dedicados ao desenvolvimento de habilidades psicomotoras e praxias (coordenação, planejamento de movimentos e percepção espacial). Através de movimentos intencionais e direcionados, ativamos funções executivas (atenção, foco, concentração e memória de trabalho) para impulsionar aprendizagem e o desempenho acadêmico através da conexão entre corpo e mente, promovendo um desenvolvimento escolar integrativo"
     }
   ];
 
@@ -30,7 +30,7 @@ export default function About() {
             <span className="section-tag">QUEM SOMOS</span>
             <h2 className="title">A integração entre neurociência, educação e desenvolvimento humano.</h2>
             <p className="subtitle">
-              A InclusivaMente cria soluções estruturadas que acolhem e fortalecem crianças, jovens e adultos, 
+              A InclusivaMente cria soluções estruturadas que acolhem e fortalecem crianças, jovens, adultos e idosos,
               transformando os ambientes ao seu redor com embasamento técnico rigoroso.
             </p>
           </div>

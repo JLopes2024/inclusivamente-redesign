@@ -5,9 +5,9 @@ export default function Testimonials() {
   const depoimentos = [
     {
       id: 1,
-      texto: "Em 1 mês de natação o foco dele está muito melhor, ele está bem mais calmo também",
-      nome: "Família Participante",
-      cargo: ""
+      texto: "Havia uma grande dificuldade de comunicação da equipe, organização de rotina, e planejamento assertivo. Após a Inclusivamente tudo mudou. Somos extremamente gratos.",
+      nome: "Vanessa Martins",
+      cargo: "Gestora Semeare | Psicopedagoga"
     },
     {
       id: 2,
