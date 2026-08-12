@@ -6,33 +6,40 @@ export default function Methodology() {
   const moverMethod = [
     { 
       letter: "M", 
-      title: "Movimento", 
+      title: "Movimento Intencional", 
       icon: <Activity size={24} />,
-      text: "Desenvolvimento motor e psicomotricidade, focando em atos voluntários, visuoconstrução e praxia para destravar o corpo e a mente." 
+      text: "Movimento direcionado para construir a base do corpo e desenvolver habilidades psicomotoras que ativam as funções executivas do cérebro, destravando o corpo e a mente para a aprendizagem
+" 
     },
     { 
       letter: "O", 
-      title: "Organização", 
+      title: "Organização Corporal", 
       icon: <Settings size={24} />,
-      text: "Estruturação cognitiva e ambiental, essencial para a regulação e para a consolidação de habilidades na memória não declarativa." 
+      text: "Regulação e organização do Sistema Nervoso Central através do equilíbrio e da consciência corporal, deixando o aluno pronto e estruturado para aprender
+
+" 
     },
     { 
       letter: "V", 
-      title: "Vínculo", 
+      title: "Vínculo Afetivo", 
       icon: <HeartHandshake size={24} />,
-      text: "Construção de relações seguras e conexões socioemocionais que são a base de qualquer processo de aprendizagem." 
+      text: "Relações seguras, conexões socioemocionais e manejo comportamental que geram acolhimento e segurança emocional, desarmando resistências para potencializar o aprendizado.
+
+" 
     },
     { 
       letter: "E", 
-      title: "Educação", 
+      title: "Educação e Aprendizagem", 
       icon: <BookOpen size={24} />,
-      text: "Aplicação de metodologias ativas e adaptação curricular com base neurocientífica para uma inclusão real." 
+      text: "Uso do corpo e da psicomotricidade como ferramentas para a aquisição de novas habilidades intelectuais, sociais e acadêmicas, transformando o movimento em um veículo direto para a aprendizagem
+
+" 
     },
     { 
       letter: "R", 
-      title: "Respeito", 
+      title: "Respeito ao Tempo", 
       icon: <Sprout size={24} />,
-      text: "Acolhimento profundo da neurodiversidade, entendendo e validando a singularidade de cada indivíduo." 
+      text: "Respeito absoluto ao ritmo neurológico e biológico individual, garantindo que o progresso ocorra de forma personalizada, sustentável e focada na autonomia real do aluno." 
     }
   ];
 
