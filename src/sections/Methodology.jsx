@@ -8,32 +8,25 @@ export default function Methodology() {
       letter: "M", 
       title: "Movimento Intencional", 
       icon: <Activity size={24} />,
-      text: "Movimento direcionado para construir a base do corpo e desenvolver habilidades psicomotoras que ativam as funções executivas do cérebro, destravando o corpo e a mente para a aprendizagem
-" 
+      text: "Movimento direcionado para construir a base do corpo e desenvolver habilidades psicomotoras que ativam as funções executivas do cérebro, destravando o corpo e a mente para a aprendizagem" 
     },
     { 
       letter: "O", 
       title: "Organização Corporal", 
       icon: <Settings size={24} />,
-      text: "Regulação e organização do Sistema Nervoso Central através do equilíbrio e da consciência corporal, deixando o aluno pronto e estruturado para aprender
-
-" 
+      text: "Regulação e organização do Sistema Nervoso Central através do equilíbrio e da consciência corporal, deixando o aluno pronto e estruturado para aprender" 
     },
     { 
       letter: "V", 
       title: "Vínculo Afetivo", 
       icon: <HeartHandshake size={24} />,
-      text: "Relações seguras, conexões socioemocionais e manejo comportamental que geram acolhimento e segurança emocional, desarmando resistências para potencializar o aprendizado.
-
-" 
+      text: "Relações seguras, conexões socioemocionais e manejo comportamental que geram acolhimento e segurança emocional, desarmando resistências para potencializar o aprendizado." 
     },
     { 
       letter: "E", 
       title: "Educação e Aprendizagem", 
       icon: <BookOpen size={24} />,
-      text: "Uso do corpo e da psicomotricidade como ferramentas para a aquisição de novas habilidades intelectuais, sociais e acadêmicas, transformando o movimento em um veículo direto para a aprendizagem
-
-" 
+      text: "Uso do corpo e da psicomotricidade como ferramentas para a aquisição de novas habilidades intelectuais, sociais e acadêmicas, transformando o movimento em um veículo direto para a aprendizagem" 
     },
     { 
       letter: "R", 
