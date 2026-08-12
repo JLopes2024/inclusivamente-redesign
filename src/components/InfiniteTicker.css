@@ -39,7 +39,7 @@
 .ticker-text {
   font-size: 1.1rem;
   font-weight: 700;
-  text-transform: uppercase;
+  color: #0b1a45;
   letter-spacing: 2px;
   margin: 0 24px;
 }
