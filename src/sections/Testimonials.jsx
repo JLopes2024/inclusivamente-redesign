@@ -11,22 +11,25 @@ export default function Testimonials() {
     },
     {
       id: 2,
-      texto: "Havia uma grande dificuldade em organização de espaço e de equipe, após a Inclusivamente tudo mudou. Somos extremamente gratos. ",
-      nome: "Gestora Semeare",
-      cargo: ""
+      texto: "Eu sou uma pessoa muito intensa em tudo que faço, todas as responsabilidades faziam com que eu não percebesse o quanto eu não precisava ser tão rígida. Aprendi nos encontros da Inclusivamente que tudo pode ser mais maleável, me sinto mais leve.",
+      nome: "Marcia Peixoto",
+      cargo: "Mãe Atípica | Grupo apoio ao cuidador"
     },
     {
       id: 3,
-      texto: "O que eu esperava era que a minha filha deixasse ao menos eu tocar no cabelo dela, apenas isso, mas tudo foi muito além. A InclusivaMente trouxe movimento e trouxe foco e presença. O movimento consciente trouxe ordem e independência. Trouxeram vida.",
-      nome: "Família Participante",
-      cargo: ""
-    },
+      texto: "O que eu esperava era que minha filha deixasse ao menos eu tocar no cabelo dela, apenas isso, mas tudo foi muito além. A Inclusivamente trouxe movimento, foco e presença. O movimento consciente trouxe ordem e independência. Trouxeram vida.",
+      nome: "Micaelle Santos",
+      cargo: "Mãe Atípica | Personal de Atividade Física Adaptada"
+    }
+    /* 
     {
       id: 4,
       texto: "Eu sou uma pessoa muito intensa em tudo o que faço, todas as responsabilidades faziam com que eu não percebia o quanto eu não precisava ser tão rígida. Aprendi que tudo pode ser mais maleável, me sinto mais leve.",
       nome: "Workshop Despertar",
       cargo: ""
     }
+    */
+    
   ];
 
   return (
