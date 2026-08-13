@@ -20,15 +20,19 @@ export default function Testimonials() {
       texto: "O que eu esperava era que minha filha deixasse ao menos eu tocar no cabelo dela, apenas isso, mas tudo foi muito além. A Inclusivamente trouxe movimento, foco e presença. O movimento consciente trouxe ordem e independência. Trouxeram vida.",
       nome: "Micaelle Santos",
       cargo: "Mãe Atípica | Personal de Atividade Física Adaptada"
-    }
-    /* 
+    }, 
     {
       id: 4,
-      texto: "Eu sou uma pessoa muito intensa em tudo o que faço, todas as responsabilidades faziam com que eu não percebia o quanto eu não precisava ser tão rígida. Aprendi que tudo pode ser mais maleável, me sinto mais leve.",
-      nome: "Workshop Despertar",
-      cargo: ""
+      texto: "Em menos de um mês após a conclusão da Certificação Método MOVer®, surgiram novas oportunidades profissionais, incluindo uma proposta para cargo de coordenação, além da conquista de mais 3 alunos particulares. A mentoria individual me trouxe uma bagagem técnica muito sólida. Hoje me sinto mais seguro para atender meus alunos e entregar resultados reais. Sou muito grato por essa evolução na minha carreira.",
+      nome: "João Santos",
+      cargo: "Professor de Natação | Certificação Aquática Método MOVer®"
+    },
+     {
+      id: 5,
+      texto: "Sou muita grata por cada aprendizado, não é apenas uma aula de natação. A InclusivaMente tem nos ajudado bastante com as orientações de manejo comportamental que recebemos em aula e trazemos para o nosso dia a dia. Só tenho a agradecer.",
+      nome: "Amanda Ramos",
+      cargo: "Família Participante | Natação Adaptada"
     }
-    */
     
   ];
 
