@@ -16,7 +16,7 @@ export default function About() {
     {
       icon: <Activity size={28} strokeWidth={1.5} />,
       title: "Atividade Física e Adaptada",
-      text: "Programas dedicados ao desenvolvimento de habilidades psicomotoras e praxias (coordenação, planejamento de movimentos e percepção espacial). Através de movimentos intencionais e direcionados, ativamos funções executivas (atenção, foco, concentração e memória de trabalho) para impulsionar aprendizagem e o desempenho acadêmico através da conexão entre corpo e mente, promovendo um desenvolvimento escolar integrativo"
+      text: "Programas dedicados ao desenvolvimento de habilidades psicomotoras e praxias (coordenação, planejamento de movimentos e percepção espacial). Através de movimentos intencionais e direcionados, ativamos funções executivas (atenção, foco, concentração e memória de trabalho) para impulsionar aprendizagem e o desempenho acadêmico através da conexão entre corpo e mente, promovendo um desenvolvimento escolar integrativo."
     }
   ];
 
