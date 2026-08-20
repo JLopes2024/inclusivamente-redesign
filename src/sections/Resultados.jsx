@@ -18,7 +18,7 @@ export default function Resultados() {
         <span className="section-tag">RESULTADOS</span>
 
         <h2 className="title">
-          O impacto real da nossa metodologia
+          O impacto real da nossa metodologia.
         </h2>
 
         <div className="resultados-grid">
