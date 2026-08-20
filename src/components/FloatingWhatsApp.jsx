@@ -2,9 +2,19 @@ import { LINKS } from "../constants";
 import "./FloatingWhatsApp.css";
 
 export default function FloatingWhatsApp() {
+  // 1. Escreva a mensagem que você quer que apareça
+  const mensagem = "Olá! Vim pelo site da InclusivaMente e gostaria de saber mais.";
+  
+  // 2. Codifique a mensagem para não quebrar a URL
+  const mensagemCodificada = encodeURIComponent(mensagem);
+
+  // 3. Concatene com o seu link base
+  // Assumindo que o seu LINKS.WHATSAPP é algo como "https://wa.me/5511999999999"
+  const linkWhatsApp = `${LINKS.WHATSAPP}?text=${mensagemCodificada}`;
+
   return (
     <a 
-      href={LINKS.WHATSAPP} 
+      href={linkWhatsApp} 
       target="_blank" 
       rel="noopener noreferrer" 
       className="floating-whatsapp"
