@@ -33,7 +33,7 @@ export default function Hero() {
 
           <p>
             A InclusivaMente é uma assessoria e consultoria especializada em soluções
-            pedagógicas inclusivas, sociais e de bem-estar, conectado à educação, saúde e
+            pedagógicas inclusivas, sociais e de bem-estar, conectada à educação, saúde e
             desenvolvimento humano de forma integrada.
           </p>
           <button className="btn-hero-action" onClick={handleAgendarClick}>
